@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>defaultTextures/defaultTexture.png</file>
+    </qresource>
+</RCC>
