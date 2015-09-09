@@ -19,4 +19,8 @@ HEADERS += \
 DISTFILES += \
     main.qml \
     PlayField.qml \
+    Options.qml \
+    styles/StyleForCheckBox.qml \
+    styles/StyleForRadioButton.qml \
+    styles/StyleForSlider.qml \
     Options.qml

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    GraphicManager p("../starDust");
+    GraphicManager p();
 
     ScreenManager manager;
 

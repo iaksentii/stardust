@@ -26,5 +26,4 @@ android-no-sdk {
 
 export(INSTALLS)
 
-DISTFILES += \
-    $$PWD/Options.qml
+DISTFILES +=
