@@ -11,7 +11,7 @@ Rectangle {
     Column{
         anchors.verticalCenter:  parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
-        spacing: 40
+        spacing: 20
         Column {
             spacing: 20
             Rectangle {
@@ -28,7 +28,11 @@ Rectangle {
             Row{
                 spacing: 10
                 Slider{
-                style: StyleForSlider{}
+                    minimumValue:0
+                    maximumValue:100
+                    stepSize:10
+                    value:20
+                    style: StyleForSlider{}
                 }
                 CheckBox {
                     text: checked ? "Sound on" : "Sound off"
@@ -37,7 +41,8 @@ Rectangle {
             }
         }
 
-
+          Column{
+              spacing: 10
         Rectangle {
             width: 300
             height: 60
@@ -52,7 +57,7 @@ Rectangle {
         }
         GroupBox {
             anchors.horizontalCenter: parent.horizontalCenter
-            title: "Tab Position"
+            title: "Graphic quality"
 
             Row {
                 ExclusiveGroup { id: tabPositionGroup }
@@ -68,7 +73,7 @@ Rectangle {
                 }
             }
         }
-
+}
         Rectangle {
             width: 300
             height: 60
@@ -81,14 +86,23 @@ Rectangle {
             }
 
         }
-        ComboBox {
-            currentIndex: 0
-            style: ComboBoxStyle{}
-            model: ListModel {
-                ListElement{ text: "Русский"}
-                ListElement{ text: "English"}
+        Row {
+            anchors.horizontalCenter: parent.horizontalCenter
+            spacing: 10
+            Text{
+                text: "Language"
             }
 
+            ComboBox {
+                width: 100
+                currentIndex: 0
+                style: ComboBoxStyle{}
+                model: ListModel {
+                    ListElement{ text: "Русский"}
+                    ListElement{ text: "English"}
+                }
+
+            }
         }
     }
 }
