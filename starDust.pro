@@ -23,4 +23,6 @@ DISTFILES += \
     styles/StyleForCheckBox.qml \
     styles/StyleForRadioButton.qml \
     styles/StyleForSlider.qml \
-    Options.qml
+    Options.qml \
+    styles/MyText.qml \
+    styles/Button.qml
