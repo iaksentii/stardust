@@ -1,0 +1,11 @@
+<RCC>
+<<<<<<< HEAD
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>EmptyPage.qml</file>
+        <file>Loader.qml</file>
+    </qresource>
+=======
+    <qresource prefix="/"/>
+>>>>>>> qml file in new directory
+</RCC>

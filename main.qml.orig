@@ -2,17 +2,21 @@ import QtQuick 2.3
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.2
 
-import "styles"
 ApplicationWindow {
+<<<<<<< HEAD
     id: mainWindow
+=======
+    title: qsTr("Hello World")
+    width: 800
+    height: 800
+>>>>>>> options
     visible: true
     visibility: "FullScreen"
 
-    property string screen: "mainWindow"
     property var array: []
 
     Image {
-        source: graphicEngine.get("Background.jpg",screen)
+        source: "qrc:/Images/Background.jpg"
     }
 
     Column {
@@ -22,10 +26,14 @@ ApplicationWindow {
         anchors.rightMargin: 100
         anchors.verticalCenter: parent.verticalCenter
 
-        Button {
-            TextLabel {
+        Rectangle {
+            id: startGameButton
+            color: "lightblue"; radius: 10.0
+            width: 400; height: 50
+            Text {
                 anchors.centerIn: parent
-                text: "START GAME"
+                font.pointSize: 24; text: "Start Game"
+                font.family: "Laksaman"
             }
             MouseArea {
                 anchors.fill: parent
@@ -34,10 +42,16 @@ ApplicationWindow {
                 }
             }
         }
-        Button {
-            TextLabel {
+<<<<<<< HEAD
+        Rectangle {
+            id: handBookButton
+            color: "gold"; radius: 10.0
+            width: startGameButton.width; height: startGameButton.height
+
+            Text {
                 anchors.centerIn: parent
-                text: "HANDBOOK"
+                font.pointSize: 24; text: "HandBook"
+                font.family: "Laksaman"
             }
             MouseArea {
                 anchors.fill: parent
@@ -46,10 +60,14 @@ ApplicationWindow {
                 }
             }
         }
-        Button {
-            TextLabel {
+        Rectangle {
+            id: profileButton
+            color: "lightgreen"; radius: 10.0
+            width: startGameButton.width; height: startGameButton.height
+            Text {
                 anchors.centerIn: parent
-                text: "PROFILE"
+                font.pointSize: 24; text: "Profile"
+                font.family: "Laksaman"
             }
             MouseArea {
                 anchors.fill: parent
@@ -58,10 +76,14 @@ ApplicationWindow {
                 }
             }
         }
-        Button {
-            TextLabel {
+        Rectangle {
+            id: optionsButton
+            color: "lightblue"; radius: 10.0
+            width: startGameButton.width; height: startGameButton.height
+            Text {
                 anchors.centerIn: parent
-                text: "OPTIONS"
+                font.pointSize: 24; text: "Options"
+                font.family: "Laksaman"
             }
             MouseArea {
                 anchors.fill: parent
@@ -70,10 +92,14 @@ ApplicationWindow {
                 }
             }
         }
-        Button {
-            TextLabel {
+        Rectangle {
+            id: moreInfoButton
+            color: "gold"; radius: 10.0
+            width: startGameButton.width; height: startGameButton.height
+            Text {
                 anchors.centerIn: parent
-                text: "MORE INFO"
+                font.pointSize: 24; text: "More Info"
+                font.family: "Laksaman"
             }
             MouseArea {
                 anchors.fill: parent
@@ -82,10 +108,13 @@ ApplicationWindow {
                 }
             }
         }
-        Button {
-            TextLabel {
+        Rectangle {
+            color: "lightgreen"; radius: 10.0
+            width: startGameButton.width; height: startGameButton.height
+            Text {
                 anchors.centerIn: parent
-                text: "QUIT"
+                font.pointSize: 24; text: "Quit"
+                font.family: "Laksaman"
             }
             MouseArea {
                 anchors.fill: parent
@@ -94,15 +123,29 @@ ApplicationWindow {
                 }
             }
         }
-
     }
 
     Connections {
         target: ScreenManager
         onOpenWindowSignal: {
-            var component = Qt.createComponent("Loader.qml")
+            var component = Qt.createComponent("qrc:/Loader.qml")
             if (component.status === Component.Ready) {
                 var child = component.createObject(mainWindow)
+=======
+    }
+    Rectangle {
+        anchors.fill: parent
+        anchors.centerIn: parent
+        width: 640
+        height: 480
+
+
+    }
+    Options{
+        anchors.centerIn: parent
+    }
+//PlayField{}
+>>>>>>> options
 
                 child.sourceName.source = windowName
 
@@ -115,5 +158,4 @@ ApplicationWindow {
             element.destroy()
         }
     }
-
 }

@@ -1,11 +1,11 @@
 import QtQuick 2.3
 
 Rectangle {
-    id: main
-
+    id: emptyPage
+    property string screen: "emptyPage"
     Image {
         anchors.centerIn: parent
-        source: "qrc:/Images/PageNotFound.png"
+        source:graphicEngine.get("PageNotFound.png",screen)
 
         Rectangle {
             width: 100

@@ -14,6 +14,8 @@ Rectangle {
     width: 500
     height: 600
 
+    border.width: 10
+    border.color: "#21a89f"
 //    Audio {
 //          id: music
 //          source:  // Point this to a suitable video file
@@ -21,6 +23,7 @@ Rectangle {
 //      }
     Image {
         id:optionBG
+
         fillMode: Image.PreserveAspectCrop
         anchors.fill: parent
         source: graphicEngine.get("options.jpg",screen)
@@ -28,14 +31,32 @@ Rectangle {
 
     FastBlur {
         anchors.fill: options
+
         width: itemColumn.width
         height: itemColumn.height
         source: optionBG
         radius: 32
 
     }
+    Button {
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 70
+
+        TextLabel{
+            anchors.centerIn: parent
+            text: "RETURN"
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                ScreenManager.closeWindow()
+            }
+        }
+    }
+
     Item {
         id: itemColumn
+
         y: 160
         width: 400
         height: 400
@@ -44,6 +65,7 @@ Rectangle {
 
         Column{
             id:column
+
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 20
 
@@ -80,6 +102,7 @@ Rectangle {
                     }
                     CheckBox {
                         id: checkBox
+
                         checked: true
                         style: StyleForCheckBox{
                             label:
@@ -113,6 +136,7 @@ Rectangle {
                 }
                 GroupBox {
                     id: graphicRow
+
                     visible: false
                     anchors.horizontalCenter: parent.horizontalCenter
                     Row {
@@ -171,6 +195,7 @@ Rectangle {
             }
             Row {
                 id: languageRow
+
                 visible: false
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: 10
@@ -183,7 +208,6 @@ Rectangle {
                 }
 
                 ComboBox {
-                    id:combo
                     width: 120
                     height: 30
                     currentIndex: 0

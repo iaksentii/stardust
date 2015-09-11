@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick widgets
 
 SOURCES += main.cpp \
-    graphicmanager.cpp
+    graphicmanager.cpp \
+    screenmanager.cpp
 
 
 RESOURCES += qml.qrc
@@ -14,7 +15,8 @@ QML_IMPORT_PATH =
 # Default rules for deployment.
 include(deployment.pri)
 HEADERS += \
-    graphicmanager.h
+    graphicmanager.h \
+    screenmanager.h
 
 DISTFILES += \
     main.qml \
@@ -25,4 +27,6 @@ DISTFILES += \
     Options.qml \
     styles/Button.qml \
     styles/StyleForComboBox.qml \
-    styles/TextLabel.qml
+    styles/TextLabel.qml \
+    Loader.qml \
+    EmptyPage.qml

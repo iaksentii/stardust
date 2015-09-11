@@ -1,0 +1,32 @@
+#include <QApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+<<<<<<< HEAD
+#include <QDir>
+=======
+
+#include "graphicmanager.h"
+>>>>>>> qml file in new directory
+#include <QDebug>
+
+#include "screenmanager.h"
+#include "graphicmanager.h"
+
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+
+    QQmlApplicationEngine engine;
+    GraphicManager p("../starDust");
+
+<<<<<<< HEAD
+    ScreenManager manager;
+
+    engine.rootContext()->setContextProperty("ScreenManager", &manager);
+=======
+>>>>>>> qml file in new directory
+    engine.rootContext()->setContextProperty("graphicEngine", &p);
+    engine.load(QUrl::fromLocalFile ("../starDust/main.qml"));
+
+    return app.exec();
+}
