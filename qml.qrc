@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>EmptyPage.qml</file>
+        <file>Loader.qml</file>
+    </qresource>
+</RCC>

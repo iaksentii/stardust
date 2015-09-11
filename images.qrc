@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/Background.jpg</file>
+        <file>Images/PageNotFound.png</file>
+    </qresource>
+</RCC>
