@@ -10,9 +10,9 @@ RadioButtonStyle {
     indicator: Rectangle {
         implicitWidth: 30
         implicitHeight: 30
-        radius: 20
-        border.color: control.activeFocus ? "darkblue" : "gray"
-        border.width: 1
+        color:"#3ef9ea"
+        border.color: "#21a89f"
+        border.width: 3
         Image{
             visible: control.checked
             anchors.margins: 4

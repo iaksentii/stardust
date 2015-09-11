@@ -24,5 +24,6 @@ DISTFILES += \
     styles/StyleForRadioButton.qml \
     styles/StyleForSlider.qml \
     Options.qml \
-    styles/MyText.qml \
-    styles/Button.qml
+    styles/Button.qml \
+    styles/StyleForComboBox.qml \
+    styles/TextLabel.qml

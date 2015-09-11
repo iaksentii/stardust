@@ -5,7 +5,11 @@ Rectangle {
     border.color: "#21a89f"
     width: 300
     height: 60
-    radius: 40
     color: "#43d3ca"
     opacity: 0.7
+
+   TextLabel{
+        font.pointSize: 16
+        color: "black"
+    }
 }

@@ -10,9 +10,9 @@ CheckBoxStyle {
     indicator: Rectangle {
         implicitWidth: 30
         implicitHeight: 30
-        radius: 20
-        border.color: control.activeFocus ? "darkblue" : "gray"
-        border.width: 1
+          color:"#3ef9ea"
+          border.color: "#21a89f"
+        border.width: 3
 
         Image{
             visible: control.checked
@@ -23,9 +23,8 @@ CheckBoxStyle {
 
 //        Rectangle {
 //            visible: control.checked
-//            color: "orange"
-//            radius: 5
-//            anchors.margins: 4
+//            color: "#43d3ca"
+//            anchors.margins: 7
 //            anchors.fill: parent
 //        }
     }
