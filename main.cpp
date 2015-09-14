@@ -11,13 +11,13 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    GraphicManager p("../starDust");
+    GraphicManager p("../stardust");
 
     ScreenManager manager;
 
     engine.rootContext()->setContextProperty("ScreenManager", &manager);
     engine.rootContext()->setContextProperty("graphicEngine", &p);
-    engine.load(QUrl::fromLocalFile ("../starDust/main.qml"));
+    engine.load(QUrl::fromLocalFile ("../stardust/main.qml"));
 
     return app.exec();
 }
