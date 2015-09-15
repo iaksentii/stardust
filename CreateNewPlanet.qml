@@ -1,12 +1,12 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
+import "styles"
 
 Rectangle {
     property alias okArea: okMouseArea
     property alias cancelArea: cancelMouseArea
     property TextInput planetName: planetName
-    property Image planetImage: planetImage
 
     id: newWindow
     color: "#feda78"
@@ -27,8 +27,7 @@ Rectangle {
 
         width: parent.width/4
         height: parent.height/7
-        text: qsTr("Cancel")
-
+        text:  qsTr("Cancel")
 
         MouseArea {
             id: cancelMouseArea
@@ -54,13 +53,11 @@ Rectangle {
 
     Rectangle {
 
-        id: planetNameSlot
         color: "transparent"
         width: 187
         height: 32
         border.width: 2
-        anchors.left: parent.left
-        anchors.leftMargin: 10
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 10
 
@@ -77,19 +74,7 @@ Rectangle {
         }
     }
 
-    Image {
-
-        id: planetImage
-        anchors.top: planetNameSlot.bottom
-        anchors.centerIn: parent
-        height: 50
-        width: 50
-    }
-
-//    Column {
-
-//        spacing: 2
-//        id:
+//    Image {
 
 //    }
 }

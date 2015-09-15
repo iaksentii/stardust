@@ -6,17 +6,18 @@ import QtQuick.Dialogs 1.2
 import galaxy.engine 1.0
 import QtGraphicalEffects 1.0
 
-ApplicationWindow {
+Item {
+    property string screenName: "playField"
+
     id: mainWindow
-//    visibility: "FullScreen"
     visible: true
-    height: 900
-    width: 1000
+    height: 1024
+    width: 1280
 
     Image {
         id: background
         anchors.fill: parent
-        source: "/images/background.jpg"
+        source: graphicEngine.get("background.jpg", screenName)
     }
 
     Image {
@@ -25,7 +26,7 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.leftMargin: 50
         anchors.verticalCenter: parent.verticalCenter
-        source: "/images/pr.png"
+        source: graphicEngine.get("pr.png", screenName)
 
         MouseArea {
             hoverEnabled: true
@@ -47,7 +48,7 @@ ApplicationWindow {
         anchors.right: parent.right
         anchors.rightMargin: 50
         anchors.verticalCenter: parent.verticalCenter
-        source: "/images/nx.png"
+        source: graphicEngine.get("nx.png", screenName)
 
         MouseArea {
             hoverEnabled: true
@@ -300,8 +301,8 @@ ApplicationWindow {
     CreateNewPlanet {
         id: newPlanetWindow
 
-        height: 300
-        width: 400
+        height: 200
+        width: 300
         visible: false
 
         okArea.onClicked:  {

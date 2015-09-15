@@ -22,7 +22,7 @@ void ScreenManager::loadWindow(const QString &windowName)
 
 void ScreenManager::initMap()
 {
-//    mapOfFiles["StartGame"]  = "qrc:/StartGame.qml";
+    mapOfFiles["StartGame"]  = "Galaxy.qml";
     mapOfFiles["Options"]    = "Options.qml";
 //    mapOfFiles["MoreInfo"]   = "qrc:/MoreInfo.qml";
 //    mapOfFiles["Profile"]    = "qrc:/Profile.qml";

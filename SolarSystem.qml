@@ -8,6 +8,7 @@ Item {
     property CreateNewPlanet newPlanetWindow: newPlanetWindow
     property GalaxyEngine galaxyEngine: galaxyEngine
     property Image carrentPlanet: carrentPlanet
+    property string screenName: "playField"
     property bool isEmptySlot: false
     property int planetNumber: -1
 
@@ -17,13 +18,11 @@ Item {
         id: timer
         interval: 800; running: false; repeat: false
         onTriggered: {
-            newPlanetWindow.x = carrentPlanet.x + planets.xCoords - 2 * carrentPlanet.width
+            newPlanetWindow.x = carrentPlanet.x + planets.xCoords
             newPlanetWindow.y = carrentPlanet.y + planets.yCoords + 3.5*carrentPlanet.height
 
             newPlanetWindow.planetName.text = galaxyEngine.getPlanetsName(planetNumber)
             newPlanetWindow.visible = true;
-
-            newPlanetWindow.planetImage.source = carrentPlanet.source
         }
     }
 
@@ -139,7 +138,7 @@ Item {
                         carrentPlanet = slot1
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(0) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(0) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }
@@ -179,7 +178,7 @@ Item {
                         carrentPlanet = slot2
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(1) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(1) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }
@@ -219,7 +218,7 @@ Item {
                         carrentPlanet = slot3
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(2) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(2) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }
@@ -259,7 +258,7 @@ Item {
                         carrentPlanet = slot4
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(3) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(3) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }
@@ -299,7 +298,7 @@ Item {
                         carrentPlanet = slot5
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(4) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(4) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }
@@ -339,7 +338,7 @@ Item {
                         carrentPlanet = slot6
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(5) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(5) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }
@@ -379,7 +378,7 @@ Item {
                         carrentPlanet = slot7
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(6) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(6) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }
@@ -419,7 +418,7 @@ Item {
                         carrentPlanet = slot8
                         timer.running = true
 
-                        galaxyEngine.getPlanetSlot(7) === "/images/add.png"
+                        galaxyEngine.getPlanetSlot(7) === graphicEngine.get("add.png", screenName)
                                 ? isEmptySlot = true
                                 : isEmptySlot = false
                     }

@@ -3,14 +3,15 @@
 
 #include <QObject>
 #include <QList>
+#include "graphicmanager.h"
 
 // CREATE NEW CLASS FOR PLANETS!!!
 
-class SolarSystem : public QObject
+class SolarSystem : public GraphicManager
 {
     Q_OBJECT
 public:
-    explicit SolarSystem(QObject *parent = 0);
+    explicit SolarSystem();
 
     Q_INVOKABLE QString getPlanetSlot(const int index);
     Q_INVOKABLE void setPlanetSlot(const int index, const QString value);

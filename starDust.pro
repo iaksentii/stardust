@@ -4,7 +4,8 @@ QT += qml quick widgets
 
 SOURCES += main.cpp \
     graphicmanager.cpp \
-    screenmanager.cpp
+    screenmanager.cpp \
+    solarsystem.cpp
 
 
 RESOURCES += qml.qrc
@@ -16,7 +17,8 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 HEADERS += \
     graphicmanager.h \
-    screenmanager.h
+    screenmanager.h \
+    solarsystem.h
 
 DISTFILES += \
     main.qml \
@@ -29,4 +31,8 @@ DISTFILES += \
     styles/StyleForComboBox.qml \
     styles/TextLabel.qml \
     Loader.qml \
-    EmptyPage.qml
+    EmptyPage.qml \
+    sceneEngine.js \
+    SolarSystem.qml \
+    CreateNewPlanet.qml \
+    Galaxy.qml

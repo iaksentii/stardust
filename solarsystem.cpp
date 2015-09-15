@@ -1,9 +1,9 @@
 #include "solarsystem.h"
 
-SolarSystem::SolarSystem(QObject *parent) : QObject(parent)
+SolarSystem::SolarSystem()
 {
     for(int i = 0;  i < 8; i++)
-        m_planetsSlots << "/images/add.png";
+        m_planetsSlots << get("add.png", "playField");
 
     for(int i = 0; i < 5; i++)
         m_resourcesCount << 0;

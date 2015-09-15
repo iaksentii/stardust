@@ -1,6 +1,8 @@
 import QtQuick 2.0
 
 Rectangle {
+    property alias text: text.text
+
     border.width: 3
     border.color: "#21a89f"
     width: 300
@@ -9,7 +11,8 @@ Rectangle {
     opacity: 0.7
 
    TextLabel{
-        font.pointSize: 16
-        color: "black"
+       id: text
+       font.pointSize: 16
+       color: "black"
     }
 }
