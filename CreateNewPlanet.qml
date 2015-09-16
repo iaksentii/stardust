@@ -7,16 +7,14 @@ Rectangle {
     property alias okArea: okMouseArea
     property alias cancelArea: cancelMouseArea
     property TextInput planetName: planetName
+    property Image planetImage: planetImage
 
     id: newWindow
-    color: "#feda78"
-    radius: 3
+    color: "#21a89f"
+    border.width: 10
+    border.color: "#21a89f"
 
     MouseArea {
-        anchors.rightMargin: 0
-        anchors.bottomMargin: 0
-        anchors.leftMargin: 0
-        anchors.topMargin: 0
         anchors.fill: newWindow
     }
 
@@ -25,7 +23,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
 
-        width: parent.width/4
+        width: parent.width/3.5
         height: parent.height/7
         text:  qsTr("Cancel")
 
@@ -40,7 +38,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
 
-        width: parent.width/4
+        width: parent.width/3.5
         height: parent.height/7
         text: qsTr("Ok")
 
@@ -53,6 +51,7 @@ Rectangle {
 
     Rectangle {
 
+        id: planetNameSlot
         color: "transparent"
         width: 187
         height: 32
@@ -74,7 +73,19 @@ Rectangle {
         }
     }
 
-//    Image {
+    Image {
+
+        id: planetImage
+        anchors.top: planetNameSlot.bottom
+        anchors.centerIn: parent
+        height: 50
+        width: 50
+    }
+
+//    Column {
+
+//        spacing: 2
+//        id:
 
 //    }
 }

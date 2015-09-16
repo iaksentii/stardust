@@ -1,10 +1,6 @@
-import QtQuick 2.4
-import QtQuick.Controls 1.3
-import QtQuick.Controls.Styles 1.3
-import QtQuick.Window 2.2
-import QtQuick.Dialogs 1.2
+import QtQuick 2.0
 import galaxy.engine 1.0
-import QtGraphicalEffects 1.0
+import "styles"
 
 Item {
     property string screenName: "playField"
@@ -110,20 +106,123 @@ Item {
 //        visible: false
 //    }
 
-    Rectangle{
-        property alias menuItem: menuItem
-
+    Rectangle {
         id: menuBar
         x: mainWindow.width - 10
         y: 0
         anchors.topMargin: 100
         height: parent.height
-        color: "#feda78"
+        color: "#21a89f"
+        border.width: 10
+        border.color: "#21a89f"
         width: 100
-        radius: 2
 
-        Item {
-            id: menuItem
+        MouseArea {
+            hoverEnabled: true
+            anchors.fill: menuBar
+            onEntered: {
+                slideLeft.running = true
+            }
+            onExited: {
+                slideRight.running = true
+            }
+        }
+
+        Button {
+            id: handbookButton
+            height: 50
+            width: 90
+            anchors.bottom: profileButton.top
+            size: 10
+            text: "HANDBOOK"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    ScreenManager.loadWindow("FFFF")
+                }
+            }
+        }
+        Button {
+            id: profileButton
+            height: 50
+            width: 90
+            anchors.bottom: optionsButton.top
+            size: 10
+            text: "PROFILE"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    ScreenManager.loadWindow("Profile")
+                }
+            }
+        }
+        Button {
+            id: optionsButton
+            height: 50
+            width: 90
+            anchors.bottom: infoButton.top
+            size: 10
+            text: "OPTIONS"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    ScreenManager.loadWindow("Options")
+                }
+            }
+        }
+        Button {
+            id: infoButton
+            height: 50
+            width: 90
+            anchors.bottom: guitButton.top
+            size: 10
+            text: "MORE INFO"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    ScreenManager.loadWindow("MoreInfo")
+                }
+            }
+        }
+
+        Button {
+            id: guitButton
+            height: 50
+            width: 90
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            text: "QUIT"
+            size: 10
+
+            MouseArea {
+                anchors.fill: guitButton
+                onClicked: {
+                    Qt.quit()
+                }
+            }
+        }
+
+        Connections {
+            target: ScreenManager
+            onOpenWindowSignal: {
+                var component = Qt.createComponent("Loader.qml")
+                if (component.status === Component.Ready) {
+                    var child = component.createObject(mainWindow)
+
+                    child.sourceName.source = windowName
+
+                    array.push(child)
+                }
+            }
+
+            onCloseWindowSignal: {
+                var element = array.pop()
+                element.destroy()
+            }
         }
 
         NumberAnimation {
@@ -143,17 +242,6 @@ Item {
             property: "x";
             from: mainWindow.width - menuBar.width
             to: mainWindow.width - 10
-        }
-
-        MouseArea {
-            hoverEnabled: true
-            anchors.fill: menuBar
-            onEntered: {
-                slideLeft.running = true
-            }
-            onExited: {
-                slideRight.running = true
-            }
         }
     }
 
@@ -301,8 +389,8 @@ Item {
     CreateNewPlanet {
         id: newPlanetWindow
 
-        height: 200
-        width: 300
+        height: 300
+        width: 400
         visible: false
 
         okArea.onClicked:  {

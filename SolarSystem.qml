@@ -23,6 +23,8 @@ Item {
 
             newPlanetWindow.planetName.text = galaxyEngine.getPlanetsName(planetNumber)
             newPlanetWindow.visible = true;
+
+            newPlanetWindow.planetImage.source = carrentPlanet.source
         }
     }
 
