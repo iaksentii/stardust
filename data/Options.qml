@@ -16,11 +16,11 @@ Rectangle {
 
     border.width: 10
     border.color: "#21a89f"
-//    Audio {
-//          id: music
-//          source:  // Point this to a suitable video file
-//          autoPlay: true
-//      }
+    Audio {
+        id: music
+        source: "sound.wav"  // Point this to a suitable video file
+        autoPlay: true
+    }
     Image {
         id:optionBG
 
@@ -41,16 +41,10 @@ Rectangle {
     Button {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 70
+        text: "RETURN"
 
-        TextLabel{
-            anchors.centerIn: parent
-            text: "RETURN"
-        }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                ScreenManager.closeWindow()
-            }
+        buttonArea.onClicked: {
+            ScreenManager.closeWindow()
         }
     }
 
@@ -73,18 +67,11 @@ Rectangle {
                 spacing: 20
 
                 Button {
-                    TextLabel{
-                        anchors.centerIn: parent
-                        text:"SOUND"
-                    }
-                    MouseArea{
-                        anchors.fill: parent
-                        onPressed:  {
-                            soundRow.visible = true
-                            graphicRow.visible = false
-                            languageRow.visible = false
-
-                        }
+                    text:"SOUND"
+                    buttonArea.onPressed:  {
+                        soundRow.visible = true
+                        graphicRow.visible = false
+                        languageRow.visible = false
                     }
                 }
                 Row{
@@ -93,7 +80,7 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     spacing: 10
                     Slider{
-                       // onValueChanged: music.volume = value
+                        onValueChanged: music.volume = value
                         minimumValue:0.0
                         maximumValue:1.0
                         stepSize: 0.1
@@ -102,6 +89,14 @@ Rectangle {
                     }
                     CheckBox {
                         id: checkBox
+                        onCheckedChanged: {
+                            if (checked) {
+                                music.play();
+                            }
+                            else {
+                                music.stop();
+                            }
+                        }
 
                         checked: true
                         style: StyleForCheckBox{
@@ -120,17 +115,11 @@ Rectangle {
             Column{
                 spacing: 10
                 Button {
-                    MouseArea{
-                        anchors.fill: parent
-                        onPressed:  {
-                            soundRow.visible = false
-                            graphicRow.visible = true
-                            languageRow.visible = false
-                        }
-                    }
-                    TextLabel{
-                        anchors.centerIn: parent
-                        text:"GRAPHIC"
+                    text:"GRAPHIC"
+                    buttonArea.onPressed:  {
+                        soundRow.visible = false
+                        graphicRow.visible = true
+                        languageRow.visible = false
                     }
 
                 }
@@ -179,19 +168,12 @@ Rectangle {
                 }
             }
             Button{
-                TextLabel{
-                    anchors.centerIn: parent
-                    text: "LOCALIZATION"
+                text: "LOCALIZATION"
+                buttonArea.onPressed:  {
+                    soundRow.visible = false
+                    graphicRow.visible = false
+                    languageRow.visible = true
                 }
-                MouseArea{
-                    anchors.fill: parent
-                    onPressed:  {
-                        soundRow.visible = false
-                        graphicRow.visible = false
-                        languageRow.visible = true
-                    }
-                }
-
             }
             Row {
                 id: languageRow

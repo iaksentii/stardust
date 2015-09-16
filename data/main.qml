@@ -23,76 +23,40 @@ ApplicationWindow {
         anchors.verticalCenter: parent.verticalCenter
 
         Button {
-            TextLabel {
-                anchors.centerIn: parent
                 text: "START GAME"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
+                buttonArea.onClicked: {
                     ScreenManager.loadWindow("StartGame")
                 }
             }
-        }
         Button {
-            TextLabel {
-                anchors.centerIn: parent
                 text: "HANDBOOK"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
+                buttonArea.onClicked: {
                     ScreenManager.loadWindow("FFFF")
                 }
-            }
         }
         Button {
-            TextLabel {
-                anchors.centerIn: parent
                 text: "PROFILE"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
+                buttonArea.onClicked: {
                     ScreenManager.loadWindow("Profile")
                 }
-            }
         }
         Button {
-            TextLabel {
-                anchors.centerIn: parent
                 text: "OPTIONS"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
+                buttonArea.onClicked: {
                     ScreenManager.loadWindow("Options")
                 }
-            }
         }
         Button {
-            TextLabel {
-                anchors.centerIn: parent
                 text: "MORE INFO"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
+                buttonArea.onClicked: {
                     ScreenManager.loadWindow("MoreInfo")
                 }
-            }
         }
         Button {
-            TextLabel {
-                anchors.centerIn: parent
                 text: "QUIT"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
+                buttonArea.onClicked: {
                     Qt.quit()
                 }
-            }
         }
 
     }
