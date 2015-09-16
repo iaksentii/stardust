@@ -1,5 +1,6 @@
 # C++ objects and libs
 
+StarDust.pro
 *.slo
 *.lo
 *.o
@@ -32,3 +33,11 @@ Makefile*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+
+#tmp files
+*~
+~*
+
+# build folder
+build/*
+

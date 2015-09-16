@@ -6,6 +6,6 @@ Text{
     color: "black"
     FontLoader {
         id: font
-        source: "../data/fonts/font.ttf"
+        source: "../fonts/font.ttf"
     }
 }
