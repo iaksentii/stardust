@@ -76,16 +76,82 @@ Rectangle {
     Image {
 
         id: planetImage
+        anchors.left: parent.left
+        anchors.leftMargin: 10
         anchors.top: planetNameSlot.bottom
-        anchors.centerIn: parent
-        height: 50
-        width: 50
+        anchors.topMargin: 10
+        height: 200
+        width: 200
     }
 
-//    Column {
+    Column {
 
-//        spacing: 2
-//        id:
+        id: planetsPart
+        spacing: 2
+        anchors.right: parent.right
+        anchors.top: planetNameSlot.bottom
+        anchors.topMargin: 10
+        anchors.bottom: okButton.top
+        anchors.bottomMargin: 10
+        height: parent.height - planetNameSlot.y
+        width: height/3
 
-//    }
+        Rectangle {
+            id: part1
+            color: "transparent";
+            border.color: "white";
+            border.width: 1;
+            height: parent.height/3
+            width: parent.width
+
+            Text {
+                id: r1
+                anchors.top: parent.top
+                text: "1"
+                color: "white";
+            }
+
+            MouseArea {
+                anchors.fill: parent
+            }
+        }
+        Rectangle {
+            id: part2
+            color: "transparent";
+            border.color: "white";
+            border.width: 1;
+            height: parent.height/3
+            width: parent.width
+
+            Text {
+                id: r2
+                anchors.top: parent.top
+                text: "2"
+                color: "white";
+            }
+
+            MouseArea {
+                anchors.fill: parent
+            }
+        }
+        Rectangle {
+            id: part3
+            color: "transparent";
+            border.color: "white";
+            border.width: 1;
+            height: parent.height/3
+            width: parent.width
+
+            Text {
+                id: r3
+                anchors.top: parent.top
+                text: "3"
+                color: "white";
+            }
+
+            MouseArea {
+                anchors.fill: parent
+            }
+        }
+    }
 }

@@ -389,7 +389,7 @@ Item {
     CreateNewPlanet {
         id: newPlanetWindow
 
-        height: 300
+        height: 400
         width: 400
         visible: false
 
