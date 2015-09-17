@@ -11,7 +11,10 @@ RCC_DIR = build
 SOURCES += src/main.cpp \
     src/graphicmanager.cpp \
     src/screenmanager.cpp \
-    src/solarsystem.cpp
+    src/solarsystem.cpp \
+    src/playerdata.cpp \
+    src/profilemanager.cpp \
+    src/jsonparser.cpp
 
 
 RESOURCES += src/qml.qrc
@@ -25,7 +28,10 @@ include(deployment.pri)
 HEADERS += \
     src/graphicmanager.h \
     src/screenmanager.h \
-    src/solarsystem.h
+    src/solarsystem.h \
+    src/playerdata.h \
+    src/profilemanager.h \
+    src/jsonparser.h
 
 DISTFILES += \
     main.qml \
@@ -56,4 +62,5 @@ DISTFILES += \
     data/styles/StyleForRadioButton.qml \
     data/styles/StyleForSlider.qml \
     data/styles/TextLabel.qml \
-    data/fonts/font.ttf
+    data/fonts/font.ttf \
+    data/Profile.qml

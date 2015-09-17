@@ -41,3 +41,6 @@ Makefile*
 # build folder
 build/*
 
+# game config folder
+data/config/*
+
