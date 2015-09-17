@@ -22,6 +22,13 @@ QJsonObject JsonParser::load()
 
     if (!jsonFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "can't open file " << m_fileName;
+
+        QDir().mkpath(pathToFile());
+        QJsonObject empty;
+        save(empty);
+        qDebug() << "added empty " << m_fileName;
+
+
         return QJsonObject();
     }
 
@@ -60,4 +67,17 @@ void JsonParser::save(QJsonObject &jsonObject)
 
     jsonFile.close();
 }
+void JsonParser::setFileName(const QString &fileName)
+{
+    m_fileName = fileName;
+}
+
+QString JsonParser::pathToFile()
+{
+    QStringList pathList = m_fileName.split("/");
+    pathList.removeLast();
+
+    return pathList.join("/");
+}
+
 

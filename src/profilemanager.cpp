@@ -11,11 +11,12 @@ ProfileManager::ProfileManager(QObject *parent) :
     QObject(parent),
     m_playersListModel(NULL)
 {
-    JsonParser confParser("../data/config/config.json");
-    QJsonObject jsonConfig = confParser.load();
+    QJsonObject globalConf = JsonParser("../data/config/global_config.json").load();
+    m_pathToProfiles = globalConf["profilesPath"].toString();
 
-    m_currentPlayer = jsonConfig["currentPlayer"].toString();
-    m_pathToProfiles = jsonConfig["profilesPath"].toString();
+    QJsonObject localConf = JsonParser("../data/config/global_config.json").load();
+    m_currentPlayer = localConf["currentPlayer"].toString();
+
 
     QDir dir(m_pathToProfiles);
     if (!dir.exists())
@@ -44,7 +45,6 @@ ProfileManager::ProfileManager(QObject *parent) :
     m_playersListModel = QSharedPointer<QStringListModel>(new QStringListModel());
     setPlayersListModel(m_playersList.keys());
     loadPlayer(m_currentPlayer);
-    //m_currentPlayerIndex = m_playersListModel->stringList().indexOf(m_currentPlayer);
 }
 
 void ProfileManager::newPlayer(const QString &newPlayer)
@@ -86,13 +86,25 @@ void ProfileManager::deletePlayer(QString delPlayer)
         QFile(pathToProfile(delPlayer)).remove();
 
         if (m_currentPlayer == delPlayer) {
-            loadPlayer(m_playersList.begin().key());
+            if (m_playersList.empty()) {
+                m_currentPlayer = "";
+                JsonParser confParser("../data/config/config.json");
+                QJsonObject jsonConfig = confParser.load();
+                jsonConfig["currentPlayer"] = "";
+                confParser.save(jsonConfig);
+            }
+            else {
+                loadPlayer(m_playersList.begin().key());
+            }
         }
     }
 }
 
 void ProfileManager::loadPlayer(QString playerName)
 {
+    if (m_playersList.empty())
+        return;
+
     setCurrentPlayer(playerName);
 
     JsonParser confParser("../data/config/config.json");
@@ -153,7 +165,6 @@ void ProfileManager::setPlayersListModel(const QStringList &playersListModel)
 {
     m_playersListModel->setStringList(playersListModel);
     emit playersListModelChanged();
-//    emit currentPlayerIndexChanged(currentPlayerIndex());
 }
 
 QStringListModel *ProfileManager::playersListModel()

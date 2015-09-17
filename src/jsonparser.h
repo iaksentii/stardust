@@ -12,6 +12,11 @@ public:
     QJsonObject load();
     void save(QJsonObject &jsonObject);
 
+    void setFileName(const QString &fileName);
+
+private:
+    QString pathToFile();
+
 private:
     QString m_fileName;
 

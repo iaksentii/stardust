@@ -1,6 +1,5 @@
 # C++ objects and libs
 
-StarDust.pro
 *.slo
 *.lo
 *.o
@@ -41,6 +40,7 @@ Makefile*
 # build folder
 build/*
 
-# game config folder
-data/config/*
+# local config files
+data/config/config.json
+data/config/profiles/*
 
