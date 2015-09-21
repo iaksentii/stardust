@@ -9,12 +9,16 @@ class ScreenManager : public QObject
 {
     Q_OBJECT
 private:
+    explicit ScreenManager(QObject *parent = 0);
+    ScreenManager(const ScreenManager& root);
+    ScreenManager& operator=(const ScreenManager&);
+
     QMap<QString,QString> mapOfFiles;
 
     void initMap();
 
 public:
-    explicit ScreenManager(QObject *parent = 0);
+    static ScreenManager *Instance();
 
     Q_INVOKABLE void loadWindow(const QString &windowName);
     Q_INVOKABLE void closeWindow();

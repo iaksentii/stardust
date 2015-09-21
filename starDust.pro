@@ -14,7 +14,8 @@ SOURCES += src/main.cpp \
     src/solarsystem.cpp \
     src/playerdata.cpp \
     src/profilemanager.cpp \
-    src/jsonparser.cpp
+    src/jsonparser.cpp \
+    src/gameconsole.cpp
 
 
 RESOURCES += src/qml.qrc
@@ -31,7 +32,8 @@ HEADERS += \
     src/solarsystem.h \
     src/playerdata.h \
     src/profilemanager.h \
-    src/jsonparser.h
+    src/jsonparser.h \
+    src/gameconsole.h
 
 DISTFILES += \
     main.qml \
@@ -53,7 +55,6 @@ DISTFILES += \
     data/EmptyPage.qml \
     data/Galaxy.qml \
     data/Loader.qml \
-    data/main.qml \
     data/Options.qml \
     data/SolarSystem.qml \
     data/styles/Button.qml \
@@ -63,4 +64,7 @@ DISTFILES += \
     data/styles/StyleForSlider.qml \
     data/styles/TextLabel.qml \
     data/fonts/font.ttf \
-    data/Profile.qml
+    data/Profile.qml \
+    data/MainWindow.qml \
+    data/Console.qml \
+    data/main.qml

@@ -15,32 +15,32 @@ Rectangle {
 
         }
     }
-    Rectangle {
-        id: loaderWindow
-        width: loader.width + 2
-        height: loader.height + 2
+    //    Rectangle {
+    //        id: loaderWindow
+    //        width: loader.width + 2
+    //        height: loader.height + 2
+    //        anchors.centerIn: parent
+    //        border.color: "white"
+
+    Loader {
+        id: loader
         anchors.centerIn: parent
-        border.color: "white"
 
-        Loader {
-            id: loader
-            anchors.centerIn: parent
-
-        }
     }
+    //    }
 
-    DropShadow {
-        id: rectShadow
-        anchors.fill: loaderWindow
-        cached: true
-        horizontalOffset: -7
-        verticalOffset: 7
-        spread: 0.0
-        radius: 24
-        samples: 16;
-        color: "#80000000"
-        smooth: true
-        source: loaderWindow
-    }
+    //    DropShadow {
+    //        id: rectShadow
+    //        anchors.fill: loaderWindow
+    //        cached: true
+    //        horizontalOffset: -7
+    //        verticalOffset: 7
+    //        spread: 0.0
+    //        radius: 24
+    //        samples: 16;
+    //        color: "#80000000"
+    //        smooth: true
+    //        source: loaderWindow
+    //    }
 }
 

@@ -2,82 +2,42 @@ import QtQuick 2.3
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.2
 
-import "styles"
+
 ApplicationWindow {
-    id: mainWindow
-    visible: true
+    id:main
     visibility: "FullScreen"
 
-    property string screen: "mainWindow"
-    property var array: []
-
-    Image {
-        source: graphicEngine.get("Background.jpg",screen)
-    }
-
-    Column {
-        spacing: 20
-
-        anchors.right: parent.right
-        anchors.rightMargin: 100
-        anchors.verticalCenter: parent.verticalCenter
-
-        Button {
-                text: "START GAME"
-                buttonArea.onClicked: {
-                    ScreenManager.loadWindow("StartGame")
-                }
-            }
-        Button {
-                text: "HANDBOOK"
-                buttonArea.onClicked: {
-                    ScreenManager.loadWindow("FFFF")
-                }
-        }
-        Button {
-                text: "PROFILE"
-                buttonArea.onClicked: {
-                    ScreenManager.loadWindow("Profile")
-                }
-        }
-        Button {
-                text: "OPTIONS"
-                buttonArea.onClicked: {
-                    ScreenManager.loadWindow("Options")
-                }
-        }
-        Button {
-                text: "MORE INFO"
-                buttonArea.onClicked: {
-                    ScreenManager.loadWindow("MoreInfo")
-                }
-        }
-        Button {
-                text: "QUIT"
-                buttonArea.onClicked: {
-                    Qt.quit()
-                }
-        }
-
-    }
+    property var listOfWindows: []
 
     Connections {
         target: ScreenManager
         onOpenWindowSignal: {
             var component = Qt.createComponent("Loader.qml")
             if (component.status === Component.Ready) {
-                var child = component.createObject(mainWindow)
+                var child = component.createObject(main)
 
                 child.sourceName.source = windowName
 
-                array.push(child)
+                listOfWindows.push(child)
+                gameConsole.parent = child
             }
         }
 
         onCloseWindowSignal: {
-            var element = array.pop()
-            element.destroy()
+            if (listOfWindows.length > 1) {
+                var element = listOfWindows.pop()
+                element.destroy()
+                gameConsole.parent = listOfWindows[listOfWindows.length-1]
+            }
         }
     }
 
+    Component.onCompleted: {
+        ScreenManager.loadWindow("MainMenu")
+    }
+
+    Console {
+        id: gameConsole
+
+    }
 }

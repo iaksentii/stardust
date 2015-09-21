@@ -175,11 +175,7 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: {
-
-                profileManager.loadPlayer(playersList.currentItem.text)
-                profileManager.currentPlayerData.set("score", "666")
-            }
+            onClicked: profileManager.loadPlayer(playersList.currentItem.text)
         }
     }
 
