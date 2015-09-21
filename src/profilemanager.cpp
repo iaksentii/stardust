@@ -14,7 +14,7 @@ ProfileManager::ProfileManager(QObject *parent) :
     QJsonObject globalConf = JsonParser("../data/config/global_config.json").load();
     m_pathToProfiles = globalConf["profilesPath"].toString();
 
-    QJsonObject localConf = JsonParser("../data/config/global_config.json").load();
+    QJsonObject localConf = JsonParser("../data/config/config.json").load();
     m_currentPlayer = localConf["currentPlayer"].toString();
 
 
@@ -35,7 +35,7 @@ ProfileManager::ProfileManager(QObject *parent) :
 
         if (playerName == m_currentPlayer) {
             QJsonObject jsonObject = profParser.load();
-            m_playersList.insert(playerName, extractData(jsonObject));
+            m_playersList.insert(playerName, QSharedPointer<PlayerData>(new PlayerData(jsonObject)));
         }
         else {
             m_playersList.insert(playerName, QSharedPointer<PlayerData>(new PlayerData()));
@@ -66,8 +66,9 @@ void ProfileManager::newPlayer(const QString &newPlayer)
     }
 
     m_playersList.insert(newPlayer, QSharedPointer<PlayerData>(new PlayerData()));
+    m_playersList[newPlayer]->fillDefault();
 
-    QJsonObject jsonObject = packData(m_playersList[newPlayer]);
+    QJsonObject jsonObject = m_playersList[newPlayer]->getJsonObject();
 
     JsonParser profParser(pathToProfile(newPlayer));
     profParser.save(jsonObject);
@@ -115,10 +116,21 @@ void ProfileManager::loadPlayer(QString playerName)
     JsonParser profParser(pathToProfile(playerName));
     QJsonObject jsonObject = profParser.load();
 
-    m_playersList[playerName] = extractData(jsonObject);
+    m_playersList[playerName] = QSharedPointer<PlayerData>(new PlayerData(jsonObject));
 
     m_currentPlayerIndex = m_playersListModel->stringList().indexOf(m_currentPlayer);
     emit currentPlayerIndexChanged(currentPlayerIndex());
+}
+
+void ProfileManager::saveCurrentPlayer()
+{
+    if (m_playersList.find(m_currentPlayer) == m_playersList.end())
+        return;
+
+    JsonParser profParser(pathToProfile(m_currentPlayer));
+    QJsonObject jsonObject = m_playersList[m_currentPlayer]->getJsonObject();
+
+    profParser.save(jsonObject);
 }
 
 bool ProfileManager::validName(QString playerName)
@@ -138,25 +150,6 @@ QString ProfileManager::pathToProfile(QString playerName)
     return m_pathToProfiles + "/" + playerName + ".json";
 }
 
-QSharedPointer<PlayerData> ProfileManager::extractData(const QJsonObject &jsonObject)
-{
-    QSharedPointer<PlayerData> data = QSharedPointer<PlayerData>(new PlayerData());
-
-    for (QJsonObject::const_iterator it = jsonObject.begin(); it != jsonObject.end(); it++) {
-        data->set(it.key(), it.value().toVariant());
-    }
-
-    return data;
-}
-
-QJsonObject ProfileManager::packData(const QSharedPointer<PlayerData> playerData)
-{
-    QJsonObject jsonObject;
-//    jsonObject["score"] = playerData->score();
-//    jsonObject["soundLevel"] = playerData->soundLevel();
-
-    return jsonObject;
-}
 
 int ProfileManager::currentPlayerIndex() const
 {

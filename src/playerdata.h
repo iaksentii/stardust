@@ -5,6 +5,7 @@
 #include <QMap>
 #include <QString>
 #include <QVariant>
+#include <QJsonObject>
 
 class PlayerData : public QObject
 {
@@ -12,12 +13,17 @@ class PlayerData : public QObject
 
 public:
     PlayerData();
+    PlayerData(const QJsonObject &jsonObject);
+
+    QJsonObject getJsonObject();
+    void fillDefault();
 
     Q_INVOKABLE void set(QString name, QVariant value);
     Q_INVOKABLE QVariant get(QString name);
 
-private:
 
+private:
+    void fillDataFromJson(const QJsonObject &jsonObject);
 
 private:
     QMap<QString, QVariant> m_data;

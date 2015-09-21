@@ -120,7 +120,7 @@ Rectangle {
             anchors.fill: parent
 
             highlight: Rectangle {
-                width: parent.width
+                width: playersListRect.width
 
                 radius: 5
                 opacity: 0.7
@@ -201,7 +201,6 @@ Rectangle {
             playersList.currentIndex = index;
         }
     }
-
 
 }
 

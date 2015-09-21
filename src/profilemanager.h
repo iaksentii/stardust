@@ -26,6 +26,7 @@ public:
     Q_INVOKABLE void deletePlayer(QString delPlayer);
     Q_INVOKABLE void loadPlayer(QString playerName);
 
+    Q_INVOKABLE void saveCurrentPlayer();
     Q_INVOKABLE QString currentPlayer() const;
     void setCurrentPlayer(const QString &playerName);
 
@@ -40,9 +41,6 @@ signals:
 private:
     bool validName(QString playerName);
     QString pathToProfile(QString playerName);
-
-    QSharedPointer<PlayerData> extractData(const QJsonObject &jsonObject);
-    QJsonObject packData(const QSharedPointer<PlayerData> playerData);
 
 private:
     QMap<QString, QSharedPointer<PlayerData> > m_playersList;
