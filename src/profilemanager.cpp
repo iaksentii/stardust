@@ -47,6 +47,12 @@ ProfileManager::ProfileManager(QObject *parent) :
     loadPlayer(m_currentPlayer);
 }
 
+ProfileManager *ProfileManager::Instance()
+{
+    static ProfileManager profileManager;
+    return &profileManager;
+}
+
 void ProfileManager::newPlayer(const QString &newPlayer)
 {
     if (!validName(newPlayer))

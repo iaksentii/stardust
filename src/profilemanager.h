@@ -16,8 +16,12 @@ class ProfileManager : public QObject
     Q_PROPERTY(int currentPlayerIndex READ currentPlayerIndex NOTIFY currentPlayerIndexChanged)
     Q_PROPERTY(PlayerData* currentPlayerData READ currentPlayerData NOTIFY currentPlayerDataChanged)
 
+    ProfileManager(QObject *parent = 0);
+    ProfileManager(const ProfileManager& val);
+    ProfileManager& operator=(const ProfileManager& val);
+
 public:
-    explicit ProfileManager(QObject *parent = 0);
+    static ProfileManager *Instance();
 
     QStringListModel* playersListModel();
     void setPlayersListModel(const QStringList &playersListModel);

@@ -18,12 +18,11 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     GraphicManager p(".");
 
-    ProfileManager profileManager;
     GameConsole console;
 
     engine.rootContext()->setContextProperty("ScreenManager", ScreenManager::Instance());
     engine.rootContext()->setContextProperty("graphicEngine", &p);
-    engine.rootContext()->setContextProperty("profileManager", &profileManager);
+    engine.rootContext()->setContextProperty("profileManager", ProfileManager::Instance());
     engine.rootContext()->setContextProperty("gameConsolee", &console);
 
     engine.load(QUrl::fromLocalFile ("../data/main.qml"));

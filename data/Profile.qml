@@ -179,23 +179,10 @@ Rectangle {
         }
     }
 
-    TextLabel {
-        id: captioncurrentPlayer
-
-        x: loadBtn.x
-        y: loadBtn.y + loadBtn.height + space
-
-        font.pointSize: 12
-        text: profileManager.currentPlayer()
-
-    }
 
     Connections {
         target: profileManager
-        onCurrentPlayerIndexChanged: {
-            captioncurrentPlayer.text = profileManager.currentPlayer() + "  " + profileManager.currentPlayerData.get("score");
-            playersList.currentIndex = index;
-        }
+        onCurrentPlayerIndexChanged: playersList.currentIndex = index
     }
 
 }
