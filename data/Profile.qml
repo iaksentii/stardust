@@ -175,24 +175,29 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: profileManager.loadPlayer(playersList.currentItem.text)
+            onClicked: {
+
+                profileManager.loadPlayer(playersList.currentItem.text)
+                profileManager.currentPlayerData.set("score", "666")
+            }
         }
     }
 
     TextLabel {
-        id: currentPlayer
+        id: captioncurrentPlayer
 
         x: loadBtn.x
         y: loadBtn.y + loadBtn.height + space
 
         font.pointSize: 12
         text: profileManager.currentPlayer()
+
     }
 
     Connections {
         target: profileManager
         onCurrentPlayerIndexChanged: {
-            currentPlayer.text = profileManager.currentPlayer();
+            captioncurrentPlayer.text = profileManager.currentPlayer() + "  " + profileManager.currentPlayerData.get("score");
             playersList.currentIndex = index;
         }
     }

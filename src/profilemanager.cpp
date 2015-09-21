@@ -141,8 +141,10 @@ QString ProfileManager::pathToProfile(QString playerName)
 QSharedPointer<PlayerData> ProfileManager::extractData(const QJsonObject &jsonObject)
 {
     QSharedPointer<PlayerData> data = QSharedPointer<PlayerData>(new PlayerData());
-    data->setScore(jsonObject["score"].toInt());
-    data->setSoundLevel(jsonObject["soundLevel"].toInt());
+
+    for (QJsonObject::const_iterator it = jsonObject.begin(); it != jsonObject.end(); it++) {
+        data->set(it.key(), it.value().toVariant());
+    }
 
     return data;
 }
@@ -150,8 +152,8 @@ QSharedPointer<PlayerData> ProfileManager::extractData(const QJsonObject &jsonOb
 QJsonObject ProfileManager::packData(const QSharedPointer<PlayerData> playerData)
 {
     QJsonObject jsonObject;
-    jsonObject["score"] = playerData->score();
-    jsonObject["soundLevel"] = playerData->soundLevel();
+//    jsonObject["score"] = playerData->score();
+//    jsonObject["soundLevel"] = playerData->soundLevel();
 
     return jsonObject;
 }
@@ -159,6 +161,11 @@ QJsonObject ProfileManager::packData(const QSharedPointer<PlayerData> playerData
 int ProfileManager::currentPlayerIndex() const
 {
     return m_currentPlayerIndex;
+}
+
+PlayerData* ProfileManager::currentPlayerData() const
+{
+    return m_playersList[m_currentPlayer].data();
 }
 
 void ProfileManager::setPlayersListModel(const QStringList &playersListModel)

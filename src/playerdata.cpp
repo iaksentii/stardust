@@ -1,30 +1,18 @@
 #include "playerdata.h"
 
-PlayerData::PlayerData() :
-    m_score(0),
-    m_soundLevel(0)
+PlayerData::PlayerData()
 {
 
 }
-int PlayerData::score() const
+
+void PlayerData::set(QString name, QVariant value)
 {
-    return m_score;
+    m_data.insert(name, value);
 }
 
-void PlayerData::setScore(int score)
+QVariant PlayerData::get(QString name)
 {
-    m_score = score;
-    emit scoreChanged();
-}
-int PlayerData::soundLevel() const
-{
-    return m_soundLevel;
-}
-
-void PlayerData::setSoundLevel(int soundLevel)
-{
-    m_soundLevel = soundLevel;
-    emit soundLevelChanged();
+    return m_data[name];
 }
 
 

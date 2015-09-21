@@ -14,6 +14,7 @@ class ProfileManager : public QObject
     Q_OBJECT
     Q_PROPERTY(QStringListModel* playersListModel READ playersListModel NOTIFY playersListModelChanged)
     Q_PROPERTY(int currentPlayerIndex READ currentPlayerIndex NOTIFY currentPlayerIndexChanged)
+    Q_PROPERTY(PlayerData* currentPlayerData READ currentPlayerData NOTIFY currentPlayerDataChanged)
 
 public:
     explicit ProfileManager(QObject *parent = 0);
@@ -29,10 +30,12 @@ public:
     void setCurrentPlayer(const QString &playerName);
 
     Q_INVOKABLE int currentPlayerIndex() const;
+    Q_INVOKABLE PlayerData* currentPlayerData() const;
 
 signals:
     void playersListModelChanged();
     void currentPlayerIndexChanged(int index);
+    void currentPlayerDataChanged();
 
 private:
     bool validName(QString playerName);
