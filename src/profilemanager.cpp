@@ -81,6 +81,8 @@ void ProfileManager::newPlayer(const QString &newPlayer)
 
     setPlayersListModel(m_playersList.keys());
     loadPlayer(newPlayer);
+
+    emit hasPlayersChanged();
 }
 
 
@@ -105,6 +107,9 @@ void ProfileManager::deletePlayer(QString delPlayer)
             }
         }
     }
+
+    emit hasPlayersChanged();
+    emit currentPlayerDataChanged();
 }
 
 void ProfileManager::loadPlayer(QString playerName)
@@ -125,6 +130,8 @@ void ProfileManager::loadPlayer(QString playerName)
     m_playersList[playerName] = QSharedPointer<PlayerData>(new PlayerData(jsonObject));
 
     m_currentPlayerIndex = m_playersListModel->stringList().indexOf(m_currentPlayer);
+
+    emit currentPlayerDataChanged();
     emit currentPlayerIndexChanged(currentPlayerIndex());
 }
 
@@ -137,6 +144,8 @@ void ProfileManager::saveCurrentPlayer()
     QJsonObject jsonObject = m_playersList[m_currentPlayer]->getJsonObject();
 
     profParser.save(jsonObject);
+
+    emit currentPlayerDataChanged();
 }
 
 bool ProfileManager::validName(QString playerName)
@@ -165,6 +174,11 @@ int ProfileManager::currentPlayerIndex() const
 PlayerData* ProfileManager::currentPlayerData() const
 {
     return m_playersList[m_currentPlayer].data();
+}
+
+bool ProfileManager::hasPlayers()
+{
+    return !m_playersList.empty();
 }
 
 void ProfileManager::setPlayersListModel(const QStringList &playersListModel)

@@ -14,8 +14,8 @@ Rectangle {
     visible: true
 
     property string screen: "mainWindow"
-    property string playerName: profileManager.currentPlayer()
-    property string playerScore: profileManager.currentPlayerData.get("score")
+    property string playerName: profileManager.hasPlayers ? profileManager.currentPlayer() : ""
+    property string playerScore: profileManager.hasPlayers ? profileManager.currentPlayerData.get("score") : ""
 
 
     Image {
@@ -43,9 +43,9 @@ Rectangle {
 
         Connections {
             target: profileManager
-            onCurrentPlayerIndexChanged: {
-                mainMenu.playerName = profileManager.currentPlayer()
-                mainMenu.playerScore = profileManager.currentPlayerData.get("score")
+            onCurrentPlayerDataChanged: {
+                mainMenu.playerName = profileManager.hasPlayers ? profileManager.currentPlayer() : ""
+                mainMenu.playerScore = profileManager.hasPlayers ? profileManager.currentPlayerData.get("score") : ""
 
             }
         }

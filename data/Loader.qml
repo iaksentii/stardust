@@ -34,5 +34,18 @@ Rectangle {
                    anchors.centerIn: parent
                }
 
+//    DropShadow {
+//        id: rectShadow
+//        anchors.fill: loaderWindow
+//        cached: true
+//        horizontalOffset: -7
+//        verticalOffset: 7
+//        spread: 0.0
+//        radius: 24
+//        samples: 16;
+//        color: "#80000000"
+//        smooth: true
+//        source: loaderWindow
+//    }
 }
 

@@ -15,6 +15,7 @@ class ProfileManager : public QObject
     Q_PROPERTY(QStringListModel* playersListModel READ playersListModel NOTIFY playersListModelChanged)
     Q_PROPERTY(int currentPlayerIndex READ currentPlayerIndex NOTIFY currentPlayerIndexChanged)
     Q_PROPERTY(PlayerData* currentPlayerData READ currentPlayerData NOTIFY currentPlayerDataChanged)
+    Q_PROPERTY(bool hasPlayers READ hasPlayers NOTIFY hasPlayersChanged)
 
     ProfileManager(QObject *parent = 0);
     ProfileManager(const ProfileManager& val);
@@ -37,10 +38,13 @@ public:
     Q_INVOKABLE int currentPlayerIndex() const;
     Q_INVOKABLE PlayerData* currentPlayerData() const;
 
+    Q_INVOKABLE bool hasPlayers();
+
 signals:
     void playersListModelChanged();
     void currentPlayerIndexChanged(int index);
     void currentPlayerDataChanged();
+    void hasPlayersChanged();
 
 private:
     bool validName(QString playerName);

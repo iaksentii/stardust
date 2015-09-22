@@ -40,6 +40,8 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 70
 
+        visible: profileManager.hasPlayers
+
         TextLabel{
             anchors.centerIn: parent
             text: qsTr("RETURN")
