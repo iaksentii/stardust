@@ -8,6 +8,8 @@ MOC_DIR = build
 OBJECTS_DIR = build
 RCC_DIR = build
 
+CONFIG += c++11
+
 SOURCES += src/main.cpp \
     src/graphicmanager.cpp \
     src/screenmanager.cpp \
@@ -16,6 +18,9 @@ SOURCES += src/main.cpp \
     src/profilemanager.cpp \
     src/jsonparser.cpp \
     src/gameconsole.cpp \
+    src/match3/modellist.cpp \
+    src/match3/item.cpp \
+    src/match3/gameconfig.cpp \
     src/translator.cpp
 TRANSLATIONS = data/languages/starDust_en.ts\
     data/languages/starDust_ru.ts\
@@ -38,6 +43,9 @@ HEADERS += \
     src/profilemanager.h \
     src/jsonparser.h \
     src/gameconsole.h \
+    src/match3/modellist.h \
+    src/match3/item.h \
+    src/match3/gameconfig.h \
     src/translator.h
 
 DISTFILES += \
@@ -60,6 +68,7 @@ DISTFILES += \
     data/EmptyPage.qml \
     data/Galaxy.qml \
     data/Loader.qml \
+    data/main.qml \
     data/Options.qml \
     data/SolarSystem.qml \
     data/styles/Button.qml \
@@ -72,7 +81,10 @@ DISTFILES += \
     data/Profile.qml \
     data/MainWindow.qml \
     data/Console.qml \
-    data/main.qml
+    data/main.qml \
+    data/Match3.qml \
+    data/styles/SideBar.qml \
+    data/config.json
 lupdate_only{
 SOURCES = *.qml \
           *.js \

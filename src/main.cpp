@@ -4,19 +4,25 @@
 #include <QDir>
 #include <QtQml>
 #include <QDebug>
+
 #include "screenmanager.h"
 #include "graphicmanager.h"
 #include "solarsystem.h"
 #include "profilemanager.h"
 #include "gameconsole.h"
 #include "translator.h"
+#include "match3/modellist.h"
+#include "match3/gameconfig.h"
+
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    GameConfig config;
+    ModelList model(config);
     QQmlApplicationEngine engine;
-    GraphicManager  p(".");
-
+    GraphicManager graphicManager(".");
     GameConsole console;
 
     Translator translator(&app, "../data/languages");
@@ -24,8 +30,9 @@ int main(int argc, char *argv[])
     translator.addTranslation("Русский", "starDust_ru.qm");
     translator.addTranslation("Українська", "starDust_ua.qm");
 
+    engine.rootContext()->setContextProperty("myModel", &model);
+    engine.rootContext()->setContextProperty("graphicEngine", &graphicManager);
     engine.rootContext()->setContextProperty("ScreenManager", ScreenManager::Instance());
-    engine.rootContext()->setContextProperty("graphicEngine", &p);
     engine.rootContext()->setContextProperty("profileManager", ProfileManager::Instance());
     engine.rootContext()->setContextProperty("gameConsolee", &console);
     engine.rootContext()->setContextProperty("translator", &translator);

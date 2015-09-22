@@ -3,7 +3,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QDir>
-GraphicManager::GraphicManager(): m_currentDirectory ("../starDust")
+GraphicManager::GraphicManager(): m_currentDirectory (".")
 {
 
 }
@@ -21,7 +21,7 @@ QString GraphicManager::search(QString name, QString screen)
     str.append(screen);
     QDir directory(str);
     if (directory.exists(name)) {
-         qDebug() << directory.filePath(name);
+        // qDebug() << directory.filePath(name);
         return directory.filePath(name);
     }
     else {

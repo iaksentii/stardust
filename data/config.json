@@ -1,0 +1,11 @@
+{
+    "width": 10,
+    "height": 10,
+	"types": [0, 1, 2, 3, 4],
+	"elementScore": 60,
+    "minScore": 10000,
+    "maxMoves": 20,
+    "invisible": [],
+    "bricks": [33,32,23,22,36,37,26,27,82,83,72,73,86,87,76,77]
+}
+                                           

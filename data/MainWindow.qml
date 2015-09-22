@@ -5,6 +5,7 @@ import "styles"
 
 Rectangle {
     id: mainMenu
+
     height: parent.parent.height
     width: parent.parent.width
 
@@ -27,7 +28,7 @@ Rectangle {
 
         spacing: 15
 
-        Image {
+       Image {
             height: 200
             width: 200
             source: graphicEngine.get("playerIcon.png",screen)
@@ -49,6 +50,7 @@ Rectangle {
             }
         }
     }
+
 
 
     Column {
@@ -89,7 +91,13 @@ Rectangle {
             }
         }
         Button {
-            text: qsTr("QUIT")
+                text: "MATCH3"
+                buttonArea.onClicked: {
+                    ScreenManager.loadWindow("Match3")
+                }
+        }
+        Button {
+            text: qstr("QUIT")
             buttonArea.onClicked: {
                 Qt.quit()
             }

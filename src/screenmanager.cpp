@@ -25,6 +25,7 @@ void ScreenManager::initMap()
     mapOfFiles["MainMenu"]   = "MainWindow.qml";
     mapOfFiles["StartGame"]  = "Galaxy.qml";
     mapOfFiles["Options"]    = "Options.qml";
+    mapOfFiles["Match3"]    = "Match3.qml";
 //    mapOfFiles["MoreInfo"]   = "qrc:/MoreInfo.qml";
     mapOfFiles["Profile"]    = "Profile.qml";
     //    mapOfFiles["Test"]       = "qrc:/Test.qml";

@@ -1,3 +1,4 @@
+
 import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
@@ -58,6 +59,14 @@ Rectangle {
 
         Column{
             id:column
+            move: Transition{
+                NumberAnimation {
+                    easing.type: Easing.OutCubic
+                    properties: "x,y"
+                    duration: 200
+                    alwaysRunToEnd: true
+                }
+            }
 
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 20
@@ -67,7 +76,7 @@ Rectangle {
 
                 Button {
                     text:qsTr("SOUND")
-                    buttonArea.onPressed:  {
+                    buttonArea.onClicked:  {
                         soundRow.visible = true
                         graphicRow.visible = false
                         languageRow.visible = false
@@ -114,8 +123,8 @@ Rectangle {
             Column{
                 spacing: 10
                 Button {
-                    text:qsTr("GRAPHIC")
-                    buttonArea.onPressed:  {
+                    text:qstr("GRAPHIC")
+                    buttonArea.onClicked:  {
                         soundRow.visible = false
                         graphicRow.visible = true
                         languageRow.visible = false
@@ -167,8 +176,8 @@ Rectangle {
                 }
             }
             Button{
-                text: qsTr("LOCALIZATION")
-                buttonArea.onPressed:  {
+                text: qstr("LOCALIZATION")
+                buttonArea.onClicked:  {
                     soundRow.visible = false
                     graphicRow.visible = false
                     languageRow.visible = true
@@ -194,6 +203,7 @@ Rectangle {
                     height: 30
                     currentIndex: profileManager.currentPlayerData.get("languageIndex")
                     style: StyleForComboBox{}
+
                     model: ListModel {
                         ListElement{ text: "English"}
                         ListElement{ text: "Русский"}
