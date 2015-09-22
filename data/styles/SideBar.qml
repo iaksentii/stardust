@@ -4,7 +4,7 @@ Rectangle {
     id: menuBar
 
     property Button handBook: handbookButton
-    x: mainWindow.width - 10
+    x: main.width - 10
     y: 0
     anchors.topMargin: 100
     height: parent.height
@@ -104,8 +104,8 @@ Rectangle {
         target: menuBar;
         duration: 400;
         property: "x";
-        from: mainWindow.width - 10
-        to: mainWindow.width - menuBar.width
+        from: main.width - 10
+        to: main.width - menuBar.width
     }
 
 
@@ -114,7 +114,7 @@ Rectangle {
         target: menuBar;
         duration: 400;
         property: "x";
-        from: mainWindow.width - menuBar.width
-        to: mainWindow.width - 10
+        from: main.width - menuBar.width
+        to: main.width - 10
     }
 }
