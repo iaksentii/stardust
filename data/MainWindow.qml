@@ -5,7 +5,6 @@ import "styles"
 
 Rectangle {
     id: mainMenu
-
     height: parent.parent.height
     width: parent.parent.width
 
@@ -28,7 +27,7 @@ Rectangle {
 
         spacing: 15
 
-       Image {
+        Image {
             height: 200
             width: 200
             source: graphicEngine.get("playerIcon.png",screen)
@@ -52,7 +51,6 @@ Rectangle {
     }
 
 
-
     Column {
         spacing: 20
 
@@ -61,37 +59,37 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
 
         Button {
-            text: "START GAME"
+            text: qsTr("START GAME")
             buttonArea.onClicked: {
                 ScreenManager.loadWindow("StartGame")
             }
         }
         Button {
-            text: "HANDBOOK"
+            text: qsTr("HANDBOOK")
             buttonArea.onClicked: {
                 ScreenManager.loadWindow("FFFF")
             }
         }
         Button {
-            text: "PROFILE"
+            text: qsTr("PROFILE")
             buttonArea.onClicked: {
                 ScreenManager.loadWindow("Profile")
             }
         }
         Button {
-            text: "OPTIONS"
+            text: qsTr("OPTIONS")
             buttonArea.onClicked: {
                 ScreenManager.loadWindow("Options")
             }
         }
         Button {
-            text: "MORE INFO"
+            text: qsTr("MORE INFO")
             buttonArea.onClicked: {
                 ScreenManager.loadWindow("MoreInfo")
             }
         }
         Button {
-            text: "QUIT"
+            text: qsTr("QUIT")
             buttonArea.onClicked: {
                 Qt.quit()
             }

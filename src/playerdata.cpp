@@ -1,6 +1,6 @@
 #include "playerdata.h"
 #include "jsonparser.h"
-
+#include "profilemanager.h"
 PlayerData::PlayerData()
 {
 }
@@ -29,6 +29,7 @@ void PlayerData::fillDefault()
 void PlayerData::set(QString name, QVariant value)
 {
     m_data.insert(name, value);
+    ProfileManager::Instance()->saveCurrentPlayer();
 }
 
 QVariant PlayerData::get(QString name)

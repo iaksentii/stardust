@@ -42,7 +42,7 @@ Rectangle {
 
         TextLabel{
             anchors.centerIn: parent
-            text: "RETURN"
+            text: qsTr("RETURN")
         }
 
         MouseArea {
@@ -88,7 +88,7 @@ Rectangle {
         TextLabel{
             anchors.centerIn: parent
             font.pointSize: 12
-            text: "NEW"
+            text: qsTr("NEW")
         }
 
         MouseArea {
@@ -150,7 +150,7 @@ Rectangle {
         TextLabel{
             anchors.centerIn: parent
             font.pointSize: 12
-            text: "DELETE"
+            text: qsTr("DELETE")
         }
 
         MouseArea {
@@ -170,7 +170,7 @@ Rectangle {
         TextLabel{
             anchors.centerIn: parent
             font.pointSize: 12
-            text: "LOAD"
+            text: qsTr("LOAD")
         }
 
         MouseArea {

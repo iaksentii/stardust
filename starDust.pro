@@ -15,7 +15,11 @@ SOURCES += src/main.cpp \
     src/playerdata.cpp \
     src/profilemanager.cpp \
     src/jsonparser.cpp \
-    src/gameconsole.cpp
+    src/gameconsole.cpp \
+    src/translator.cpp
+TRANSLATIONS = data/languages/starDust_en.ts\
+    data/languages/starDust_ru.ts\
+    data/languages/starDust_ua.ts\
 
 
 RESOURCES += src/qml.qrc
@@ -33,7 +37,8 @@ HEADERS += \
     src/playerdata.h \
     src/profilemanager.h \
     src/jsonparser.h \
-    src/gameconsole.h
+    src/gameconsole.h \
+    src/translator.h
 
 DISTFILES += \
     main.qml \
@@ -68,3 +73,9 @@ DISTFILES += \
     data/MainWindow.qml \
     data/Console.qml \
     data/main.qml
+lupdate_only{
+SOURCES = *.qml \
+          *.js \
+          data/*.qml \
+          data/*.js
+}

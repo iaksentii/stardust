@@ -1,4 +1,3 @@
-
 import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
@@ -41,7 +40,7 @@ Rectangle {
     Button {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 70
-        text: "RETURN"
+        text: qsTr("RETURN")
 
         buttonArea.onClicked: {
             ScreenManager.closeWindow()
@@ -67,7 +66,7 @@ Rectangle {
                 spacing: 20
 
                 Button {
-                    text:"SOUND"
+                    text:qsTr("SOUND")
                     buttonArea.onPressed:  {
                         soundRow.visible = true
                         graphicRow.visible = false
@@ -103,7 +102,7 @@ Rectangle {
                             label:
                                 TextLabel{
                                 font.pointSize: 10
-                                text: "Enable sound"
+                                text: qsTr("Enable sound")
                                 color: "#43d3ca"
                             }
                         }
@@ -115,7 +114,7 @@ Rectangle {
             Column{
                 spacing: 10
                 Button {
-                    text:"GRAPHIC"
+                    text:qsTr("GRAPHIC")
                     buttonArea.onPressed:  {
                         soundRow.visible = false
                         graphicRow.visible = true
@@ -132,7 +131,7 @@ Rectangle {
                         spacing: 10
                         TextLabel{
                             anchors.verticalCenter: parent.verticalCenter
-                            text:"Graphics quality"
+                            text:qsTr("Graphics quality")
                             font.pointSize: 12
                             color: "#43d3ca"
                         }
@@ -153,7 +152,7 @@ Rectangle {
                             }
                             RadioButton {
                                 checked: false
-                                text: "Low"
+                                text: qsTr("Low")
                                 exclusiveGroup: tabPositionGroup
                                 style: StyleForRadioButton{
                                     label :   TextLabel{
@@ -168,7 +167,7 @@ Rectangle {
                 }
             }
             Button{
-                text: "LOCALIZATION"
+                text: qsTr("LOCALIZATION")
                 buttonArea.onPressed:  {
                     soundRow.visible = false
                     graphicRow.visible = false
@@ -183,24 +182,30 @@ Rectangle {
                 spacing: 10
                 TextLabel{
                     anchors.verticalCenter: parent.verticalCenter
-                    text: "Language"
+                    text: qsTr("Language")
                     font.pointSize: 12
                     color: "#43d3ca"
 
                 }
 
                 ComboBox {
+                    id:languageBar
                     width: 120
                     height: 30
-                    currentIndex: 0
-
+                    currentIndex: profileManager.currentPlayerData.get("languageIndex")
                     style: StyleForComboBox{}
-
                     model: ListModel {
-                        ListElement{ text: "Русский"}
                         ListElement{ text: "English"}
+                        ListElement{ text: "Русский"}
+                        ListElement{ text: "Українська"}
                     }
+                    onCurrentTextChanged:   {
 
+                        translator.translate(currentText)
+                        profileManager.currentPlayerData.set("languageIndex",currentIndex)
+
+
+                    }
                 }
             }
         }
