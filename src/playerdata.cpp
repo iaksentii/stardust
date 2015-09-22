@@ -1,6 +1,6 @@
 #include "playerdata.h"
 #include "jsonparser.h"
-#include "profilemanager.h"
+
 PlayerData::PlayerData()
 {
 }

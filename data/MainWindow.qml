@@ -1,5 +1,6 @@
 import QtQuick 2.3
 import QtQuick.Controls 1.4
+import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.2
 import "styles"
 
@@ -31,7 +32,7 @@ Rectangle {
        Image {
             height: 200
             width: 200
-            source: graphicEngine.get("playerIcon.png",screen)
+            source: profileManager.currentPlayerData.get("icon")
         }
 
         Text {
@@ -40,6 +41,7 @@ Rectangle {
             text: qsTr("Profile") + ":\n" + mainMenu.playerName  + "\n" + mainMenu.playerScore
             color: "white"
         }
+
 
         Connections {
             target: profileManager

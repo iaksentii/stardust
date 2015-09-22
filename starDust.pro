@@ -68,6 +68,7 @@ DISTFILES += \
     SolarSystem.qml \
     CreateNewPlanet.qml \
     Galaxy.qml \
+    data/PasswordChecking.qml \
     data/CreateNewPlanet.qml \
     data/EmptyPage.qml \
     data/Galaxy.qml \

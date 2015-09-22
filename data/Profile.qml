@@ -11,6 +11,8 @@ import "styles"
 Rectangle {
     id: profiles
 
+    property string checkedPlayer
+
     property string screen: "profiles"
     property int space: 4
 
@@ -177,15 +179,20 @@ Rectangle {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: profileManager.loadPlayer(playersList.currentItem.text)
+            onClicked:
+            {
+                profileManager.checkedPlayer = playersList.currentItem.text;
+                ScreenManager.loadWindow("PasswordChecking")
+//                profileManager.loadPlayer(playersList.currentItem.text)
+            }
         }
     }
-
 
     Connections {
         target: profileManager
         onCurrentPlayerIndexChanged: playersList.currentIndex = index
     }
+
 
 }
 

@@ -201,6 +201,7 @@ QString ProfileManager::currentPlayer() const
 void ProfileManager::setCurrentPlayer(const QString &playerName)
 {
     m_currentPlayer = playerName;
+    emit currentPlayerDataChanged();
 }
 
 

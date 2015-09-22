@@ -2,5 +2,6 @@
     "score": "0",
     "soundLvl": "50",
     "languageIndex": "0",
-    "language": "English"
+    "language": "English",
+    "icon": "../data/textures/screens/profile/defaultIcon.png"
 }
