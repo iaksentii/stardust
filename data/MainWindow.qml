@@ -97,7 +97,7 @@ Rectangle {
                 }
         }
         Button {
-            text: qstr("QUIT")
+            text: qsTr("QUIT")
             buttonArea.onClicked: {
                 Qt.quit()
             }

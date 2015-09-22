@@ -123,7 +123,7 @@ Rectangle {
             Column{
                 spacing: 10
                 Button {
-                    text:qstr("GRAPHIC")
+                    text: qsTr("GRAPHIC")
                     buttonArea.onClicked:  {
                         soundRow.visible = false
                         graphicRow.visible = true
@@ -140,7 +140,7 @@ Rectangle {
                         spacing: 10
                         TextLabel{
                             anchors.verticalCenter: parent.verticalCenter
-                            text:qsTr("Graphics quality")
+                            text: qsTr("Graphics quality")
                             font.pointSize: 12
                             color: "#43d3ca"
                         }
@@ -176,7 +176,7 @@ Rectangle {
                 }
             }
             Button{
-                text: qstr("LOCALIZATION")
+                text: qsTr("LOCALIZATION")
                 buttonArea.onClicked:  {
                     soundRow.visible = false
                     graphicRow.visible = false
