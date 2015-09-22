@@ -1,18 +1,25 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
+import galaxy.engine 1.0
 import "styles"
 
 Rectangle {
     property alias okArea: okMouseArea
     property alias cancelArea: cancelMouseArea
+    property alias part1: part1Area
+    property alias part2: part2Area
+    property alias part3: part3Area
     property TextInput planetName: planetName
-    property Image planetImage: planetImage
+    property Image planetImage: planetImg
+    property string screenName: "playField"
+    property int part: -1
+    property int planetNumber: -1
 
     id: newWindow
     color: "#21a89f"
     border.width: 10
-    border.color: "#21a89f"
+    border.color: "#43d3ca"
 
     MouseArea {
         anchors.fill: newWindow
@@ -21,7 +28,9 @@ Rectangle {
     Button {
         id: cancelButton
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: parent.border.width
         anchors.left: parent.left
+        anchors.leftMargin: parent.border.width
 
         width: parent.width/3.5
         height: parent.height/7
@@ -36,7 +45,9 @@ Rectangle {
     Button {
         id: okButton
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: parent.border.width
         anchors.right: parent.right
+        anchors.rightMargin: parent.border.width
 
         width: parent.width/3.5
         height: parent.height/7
@@ -52,10 +63,11 @@ Rectangle {
     Rectangle {
 
         id: planetNameSlot
-        color: "transparent"
+        color: "#43d3ca"
         width: 187
         height: 32
         border.width: 2
+        border.color: "#21a89f"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 10
@@ -67,7 +79,7 @@ Rectangle {
             maximumLength: 10
 
             focus: true
-            cursorVisible: true
+            cursorVisible: false
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 21
         }
@@ -75,11 +87,11 @@ Rectangle {
 
     Image {
 
-        id: planetImage
+        id: planetImg
         anchors.left: parent.left
-        anchors.leftMargin: 10
+        anchors.leftMargin: 2 * parent.border.width
         anchors.top: planetNameSlot.bottom
-        anchors.topMargin: 10
+        anchors.topMargin: 2 * parent.border.width
         height: 200
         width: 200
     }
@@ -89,6 +101,7 @@ Rectangle {
         id: planetsPart
         spacing: 2
         anchors.right: parent.right
+        anchors.rightMargin: parent.border.width
         anchors.top: planetNameSlot.bottom
         anchors.topMargin: 10
         anchors.bottom: okButton.top
@@ -98,59 +111,120 @@ Rectangle {
 
         Rectangle {
             id: part1
-            color: "transparent";
-            border.color: "white";
+            border.color: "#43d3ca";
             border.width: 1;
             height: parent.height/3
+            color: "#f56a82"
             width: parent.width
 
-            Text {
-                id: r1
-                anchors.top: parent.top
-                text: "1"
-                color: "white";
-            }
-
             MouseArea {
+                id: part1Area
                 anchors.fill: parent
+//                enabled: galaxyEngine.getPlanetsName(planetNumber) === galaxyEngine.get("add.png", screenName) ? true : false
+                onClicked: {
+                    part = 1
+                    planetImg.source = galaxyEngine.get("1.png", screenName)
+                    if(planetImg.source === galaxyEngine.get("1.png", screenName)) {
+                        console.log("juhjuihgidgude")
+                    }
+                }
+                onEnabledChanged:
+                {
+                    console.log("Part1MouseArea enabled = ", enabled)
+                }
             }
         }
         Rectangle {
             id: part2
-            color: "transparent";
-            border.color: "white";
+            border.color: "#43d3ca";
             border.width: 1;
             height: parent.height/3
+            color: "#72ffb3"
             width: parent.width
 
-            Text {
-                id: r2
-                anchors.top: parent.top
-                text: "2"
-                color: "white";
-            }
-
             MouseArea {
+                id: part2Area
                 anchors.fill: parent
+//                enabled: (galaxyEngine.getPlanetsName(planetNumber) !== galaxyEngine.get("2.png", screenName)
+//                          || galaxyEngine.getPlanetsName(planetNumber) !== galaxyEngine.get("3.png", screenName)) ? true : false
+                onClicked: {
+                    part = 2
+                    planetImg.source = galaxyEngine.get("2.png", screenName)
+                }
             }
         }
         Rectangle {
             id: part3
-            color: "transparent";
-            border.color: "white";
+            border.color: "#43d3ca";
             border.width: 1;
             height: parent.height/3
+            color: "#fafa78"
             width: parent.width
 
-            Text {
-                id: r3
-                anchors.top: parent.top
-                text: "3"
-                color: "white";
+            MouseArea {
+                id: part3Area
+                anchors.fill: parent
+//                enabled: galaxyEngine.getPlanetsName(planetNumber) !== galaxyEngine.get("3.png", screenName) ? true : false
+                onClicked: {
+                    part = 3
+                    planetImg.source = galaxyEngine.get("3.png", screenName)
+                }
             }
+        }
+    }
+
+    Rectangle {
+        id: planetType
+        anchors.fill: parent
+        color: "#21a89f"
+        border.width: 10
+        visible: false
+        border.color: "#43d3ca"
+
+        MouseArea {
+            anchors.fill: planetType
+        }
+
+        Button {
+            id: cancelB
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: parent.border.width
+            anchors.left: parent.left
+            anchors.leftMargin: parent.border.width
+
+            width: parent.width/3.5
+            height: parent.height/7
+            text:  qsTr("Cancel")
 
             MouseArea {
+                id: cancelArea
                 anchors.fill: parent
+
+                onClicked: {
+                    newPlanetWindow.visible = false
+                }
+            }
+        }
+
+        Button {
+            id: okB
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: parent.border.width
+            anchors.right: parent.right
+            anchors.rightMargin: parent.border.width
+
+            width: parent.width/3.5
+            height: parent.height/7
+            text: qsTr("Ok")
+
+
+            MouseArea {
+                id: okArea
+                anchors.fill: parent
+
+                onClicked: {
+                    planetType.visible = false
+                }
             }
         }
     }

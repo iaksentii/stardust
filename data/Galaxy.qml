@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import galaxy.engine 1.0
+import QtQuick.Controls 1.2
 import "styles"
 
 Item {
@@ -13,7 +14,7 @@ Item {
     Image {
         id: background
         anchors.fill: parent
-        source: graphicEngine.get("background.jpg", screenName)
+        source: galaxyEngine.get("background.jpg", screenName)
     }
 
     Image {
@@ -22,18 +23,18 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: 50
         anchors.verticalCenter: parent.verticalCenter
-        source: graphicEngine.get("pr.png", screenName)
+        source: galaxyEngine.get("pr.png", screenName)
 
         MouseArea {
             hoverEnabled: true
             anchors.fill: parent
             onEntered: {
-                parent.height += 10
-                parent.width += 10
+                parent.height = 60
+                parent.width = 60
             }
             onExited: {
-                parent.height -= 10
-                parent.width -= 10
+                parent.height = 50
+                parent.width = 50
             }
         }
     }
@@ -44,32 +45,27 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: 50
         anchors.verticalCenter: parent.verticalCenter
-        source: graphicEngine.get("nx.png", screenName)
+        source: galaxyEngine.get("nx.png", screenName)
 
         MouseArea {
             hoverEnabled: true
             anchors.fill: parent
             onEntered: {
-                parent.height += 10
-                parent.width += 10
+                parent.height = 60
+                parent.width = 60
             }
             onExited: {
-                parent.height -= 10
-                parent.width -= 10
+                parent.height = 50
+                parent.width = 50
             }
         }
     }
 
     Timer {
         id: timer
-        interval: 60000; running: true; repeat: true
+        interval: 6000; running: true; repeat: true
         onTriggered: {
-            galaxyEngine.addResourses()
-            resourceBar.resource1Count.text = qsTr(galaxyEngine.getResourcesCount(0).toString())
-            resourceBar.resource2Count.text = qsTr(galaxyEngine.getResourcesCount(1).toString())
-            resourceBar.resource3Count.text = qsTr(galaxyEngine.getResourcesCount(2).toString())
-            resourceBar.resource4Count.text = qsTr(galaxyEngine.getResourcesCount(3).toString())
-            resourceBar.resource5Count.text = qsTr(galaxyEngine.getResourcesCount(4).toString())
+            galaxyEngine.addResourses();
         }
     }
 
@@ -79,11 +75,6 @@ Item {
 
     SolarSystem {
         id: system1
-
-        Component.onCompleted: {
-            system1.galaxyEngine = galaxyEngine
-            system1.newPlanetWindow = newPlanetWindow
-        }
 
         anchors.centerIn: parent
         width: mainWindow.width - mainWindow.width/3
@@ -127,7 +118,6 @@ Item {
                 slideRight.running = true
             }
         }
-
         Button {
             id: handbookButton
             height: 50
@@ -206,25 +196,6 @@ Item {
             }
         }
 
-        Connections {
-            target: ScreenManager
-            onOpenWindowSignal: {
-                var component = Qt.createComponent("Loader.qml")
-                if (component.status === Component.Ready) {
-                    var child = component.createObject(mainWindow)
-
-                    child.sourceName.source = windowName
-
-                    array.push(child)
-                }
-            }
-
-            onCloseWindowSignal: {
-                var element = array.pop()
-                element.destroy()
-            }
-        }
-
         NumberAnimation {
             id: slideLeft
             target: menuBar;
@@ -258,26 +229,37 @@ Item {
         anchors.top: parent.top
         spacing: 2
 
+        ParallelAnimation {
+            id: slideTopDown
+            loops: 3
+
+            NumberAnimation {
+                id: slideDown
+                duration: 400;
+                property: "y";
+            }
+            NumberAnimation {
+                id: slideTop
+                duration: 400;
+                property: "y";
+            }
+        }
+
         Rectangle {
             property alias resource1Count : resource1Count
             id: resource1
-            color: "transparent";
+            color: "#f56a82";
+            opacity: 0.7
             border.color: "white";
             border.width: 1;
             height: parent.height
             width: parent.width/10
 
             Text {
-                id: r1
-                anchors.top: parent.top
-                text: "1"
-                color: "white";
-            }
-            Text {
                 id: resource1Count
                 anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.getResourcesCount(0).toString())
-                color: "white";
+                text: qsTr(galaxyEngine.resource1.toString())
+                color: "black";
             }
 
             MouseArea {
@@ -287,23 +269,18 @@ Item {
         Rectangle {
             property alias resource2Count : resource2Count
             id: resource2
-            color: "transparent";
+            color: "#91D4FA";
+            opacity: 0.7
             border.color: "white";
             border.width: 1;
             height: parent.height
             width: parent.width/10
 
             Text {
-                id: r2
-                anchors.top: parent.top
-                text: "2"
-                color: "white";
-            }
-            Text {
                 id: resource2Count
                 anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.getResourcesCount(1).toString())
-                color: "white";
+                text: qsTr(galaxyEngine.resource2.toString())
+                color: "black";
             }
             MouseArea {
                 anchors.fill: parent
@@ -312,23 +289,18 @@ Item {
         Rectangle {
             property alias resource3Count : resource3Count
             id: resource3
-            color: "transparent";
-            border.color: "white";
-            border.width: 1;
+            color: "#F7FA91";
+            opacity: 0.7
+            border.color: "white"
+            border.width: 1
             height: parent.height
             width: parent.width/10
 
             Text {
-                id: r3
-                anchors.top: parent.top
-                text: "3"
-                color: "white";
-            }
-            Text {
                 id: resource3Count
                 anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.getResourcesCount(2).toString())
-                color: "white";
+                text: qsTr(galaxyEngine.resource3.toString())
+                color: "black";
             }
 
             MouseArea {
@@ -338,23 +310,18 @@ Item {
         Rectangle {
             property alias resource4Count : resource4Count
             id: resource4
-            color: "transparent";
-            border.color: "white";
-            border.width: 1;
+            color: "#919BFA"
+            opacity: 0.7
+            border.color: "white"
+            border.width: 1
             height: parent.height
             width: parent.width/10
 
             Text {
-                id: r4
-                anchors.top: parent.top
-                text: "4"
-                color: "white";
-            }
-            Text {
                 id: resource4Count
                 anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.getResourcesCount(3).toString())
-                color: "white";
+                text: qsTr(galaxyEngine.resource4.toString())
+                color: "black"
             }
             MouseArea {
                 anchors.fill: parent
@@ -363,23 +330,18 @@ Item {
         Rectangle {
             property alias resource5Count : resource5Count
             id: resource5
-            color: "transparent";
-            border.color: "white";
-            border.width: 1;
+            color: "#66FFCC"
+            opacity: 0.7
+            border.color: "white"
+            border.width: 1
             height: parent.height
             width: parent.width/10
 
             Text {
-                id: r5
-                anchors.top: parent.top
-                text: "5"
-                color: "white";
-            }
-            Text {
                 id: resource5Count
                 anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.getResourcesCount(4).toString())
-                color: "white";
+                text: qsTr(galaxyEngine.resource5.toString())
+                color: "black"
             }
             MouseArea {
                 anchors.fill: parent
@@ -393,14 +355,71 @@ Item {
         width: 400
         visible: false
 
+
         okArea.onClicked:  {
             newPlanetWindow.visible = false
+
+            switch (newPlanetWindow.part) {
+            case 1:
+                if(galaxyEngine.resource1 >= 1) {
+                    galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
+                    galaxyEngine.resource1 -= 1
+                }
+                else {
+                    slideDown.targets = [resource1]
+                    slideDown.from = resource1.y - 20
+                    slideDown.to = resource1.y + 20
+                    slideTop.targets = [resource1]
+                    slideTop.from = resource1.y + 20
+                    slideTop.to = resource1.y
+
+                    slideTopDown.running = true
+                }
+
+                break;
+            case 2:
+                if(galaxyEngine.resource2 >= 2 && galaxyEngine.resource1 >= 2) {
+                    galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
+                    galaxyEngine.resource1 -= 2
+                    galaxyEngine.resource2 -= 2
+                }
+                else {
+                    slideDown.targets = [resource1, resource2]
+                    slideDown.from = resource1.y - 20
+                    slideDown.to = resource1.y + 20
+                    slideTop.targets = [resource1, resource2]
+                    slideTop.from = resource1.y + 20
+                    slideTop.to = resource1.y
+
+                    slideTopDown.running = true
+                }
+
+                break;
+            case 3:
+                if(galaxyEngine.resource3 >= 1 && galaxyEngine.resource2 >= 2 && galaxyEngine.resource1 >= 2) {
+                    galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
+                    galaxyEngine.resource1 -= 2
+                    galaxyEngine.resource2 -= 2
+                    galaxyEngine.resource3 -= 1
+                }
+                else {
+                    slideDown.targets = [resource1, resource2, resource3]
+                    slideDown.from = resource1.y - 20
+                    slideDown.to = resource1.y + 20
+                    slideTop.targets = [resource1, resource2, resource3]
+                    slideTop.from = resource1.y + 20
+                    slideTop.to = resource1.y
+
+                    slideTopDown.running = true
+                }
+                break;
+            }
+
             galaxyEngine.setPlanetsName(system1.planetNumber, newPlanetWindow.planetName.text)
         }
 
         cancelArea.onClicked: {
-            newPlanetWindow.visible = false;
-            system1.isEmptySlot = false
+            newPlanetWindow.visible = false
         }
     }
 }

@@ -11,7 +11,8 @@ RCC_DIR = build
 SOURCES += src/main.cpp \
     src/graphicmanager.cpp \
     src/screenmanager.cpp \
-    src/solarsystem.cpp
+    src/solarsystem.cpp \
+    src/planet.cpp
 
 
 RESOURCES += src/qml.qrc
@@ -25,7 +26,8 @@ include(deployment.pri)
 HEADERS += \
     src/graphicmanager.h \
     src/screenmanager.h \
-    src/solarsystem.h
+    src/solarsystem.h \
+    src/planet.h
 
 DISTFILES += \
     main.qml \
