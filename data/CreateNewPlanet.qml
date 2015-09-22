@@ -14,6 +14,9 @@ Rectangle {
     property Image planetImage: planetImg
     property string screenName: "playField"
     property int part: -1
+    property string currentTag: ""
+    property var planetTag :["add", "add", "add", "add",
+                             "add", "add", "add", "add"]
     property int planetNumber: -1
 
     id: newWindow
@@ -120,17 +123,11 @@ Rectangle {
             MouseArea {
                 id: part1Area
                 anchors.fill: parent
-//                enabled: galaxyEngine.getPlanetsName(planetNumber) === galaxyEngine.get("add.png", screenName) ? true : false
+
                 onClicked: {
                     part = 1
+                    currentTag = "1"
                     planetImg.source = galaxyEngine.get("1.png", screenName)
-                    if(planetImg.source === galaxyEngine.get("1.png", screenName)) {
-                        console.log("juhjuihgidgude")
-                    }
-                }
-                onEnabledChanged:
-                {
-                    console.log("Part1MouseArea enabled = ", enabled)
                 }
             }
         }
@@ -145,10 +142,9 @@ Rectangle {
             MouseArea {
                 id: part2Area
                 anchors.fill: parent
-//                enabled: (galaxyEngine.getPlanetsName(planetNumber) !== galaxyEngine.get("2.png", screenName)
-//                          || galaxyEngine.getPlanetsName(planetNumber) !== galaxyEngine.get("3.png", screenName)) ? true : false
                 onClicked: {
                     part = 2
+                    currentTag = "2"
                     planetImg.source = galaxyEngine.get("2.png", screenName)
                 }
             }
@@ -164,9 +160,9 @@ Rectangle {
             MouseArea {
                 id: part3Area
                 anchors.fill: parent
-//                enabled: galaxyEngine.getPlanetsName(planetNumber) !== galaxyEngine.get("3.png", screenName) ? true : false
                 onClicked: {
                     part = 3
+                    currentTag = "3"
                     planetImg.source = galaxyEngine.get("3.png", screenName)
                 }
             }

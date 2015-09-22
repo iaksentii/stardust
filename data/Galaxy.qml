@@ -191,7 +191,7 @@ Item {
             MouseArea {
                 anchors.fill: guitButton
                 onClicked: {
-                    Qt.quit()
+                    ScreenManager.closeWindow()
                 }
             }
         }
@@ -363,6 +363,7 @@ Item {
             case 1:
                 if(galaxyEngine.resource1 >= 1) {
                     galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
+                    newPlanetWindow.planetTag[planetNumber] = newPlanetWindow.currentTag
                     galaxyEngine.resource1 -= 1
                 }
                 else {
@@ -380,6 +381,7 @@ Item {
             case 2:
                 if(galaxyEngine.resource2 >= 2 && galaxyEngine.resource1 >= 2) {
                     galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
+                    newPlanetWindow.planetTag[planetNumber] = newPlanetWindow.currentTag
                     galaxyEngine.resource1 -= 2
                     galaxyEngine.resource2 -= 2
                 }
@@ -398,6 +400,7 @@ Item {
             case 3:
                 if(galaxyEngine.resource3 >= 1 && galaxyEngine.resource2 >= 2 && galaxyEngine.resource1 >= 2) {
                     galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
+                    newPlanetWindow.planetTag[planetNumber] = newPlanetWindow.currentTag
                     galaxyEngine.resource1 -= 2
                     galaxyEngine.resource2 -= 2
                     galaxyEngine.resource3 -= 1

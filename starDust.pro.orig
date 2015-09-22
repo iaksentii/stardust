@@ -14,6 +14,9 @@ SOURCES += src/main.cpp \
     src/graphicmanager.cpp \
     src/screenmanager.cpp \
     src/solarsystem.cpp \
+<<<<<<< HEAD
+    src/planet.cpp
+=======
     src/playerdata.cpp \
     src/profilemanager.cpp \
     src/jsonparser.cpp \
@@ -21,12 +24,11 @@ SOURCES += src/main.cpp \
     src/match3/modellist.cpp \
     src/match3/item.cpp \
     src/match3/gameconfig.cpp \
-    src/translator.cpp \
-    src/planet.cpp
+    src/translator.cpp
 TRANSLATIONS = data/languages/starDust_en.ts\
     data/languages/starDust_ru.ts\
     data/languages/starDust_ua.ts\
-    
+>>>>>>> 1598cb56d1ddd07448408bcf20a8b721b7fca4c9
 
 
 RESOURCES += src/qml.qrc
@@ -41,6 +43,9 @@ HEADERS += \
     src/graphicmanager.h \
     src/screenmanager.h \
     src/solarsystem.h \
+<<<<<<< HEAD
+    src/planet.h
+=======
     src/playerdata.h \
     src/profilemanager.h \
     src/jsonparser.h \
@@ -48,9 +53,8 @@ HEADERS += \
     src/match3/modellist.h \
     src/match3/item.h \
     src/match3/gameconfig.h \
-    src/translator.h \
-    src/planet.h
-    
+    src/translator.h
+>>>>>>> 1598cb56d1ddd07448408bcf20a8b721b7fca4c9
 
 DISTFILES += \
     main.qml \

@@ -24,19 +24,19 @@ Item {
         newPlanetWindow.part2.enabled = true
         newPlanetWindow.part3.enabled = true
 
-        switch (galaxyEngine.getPlanetsSlot(planetNumber)) {
+        switch (newPlanetWindow.planetTag[planetNumber]) {
 
-        case galaxyEngine.get("1.png", screenName):
+        case "1":
             newPlanetWindow.part1.enabled = false
             newPlanetWindow.part2.enabled = true
             newPlanetWindow.part3.enabled = true
             break;
-        case galaxyEngine.get("2.png", screenName):
+        case "2":
             newPlanetWindow.part1.enabled = false
             newPlanetWindow.part2.enabled = false
             newPlanetWindow.part3.enabled = true
             break;
-        case galaxyEngine.get("3.png", screenName):
+        case "3":
             newPlanetWindow.part1.enabled = false
             newPlanetWindow.part2.enabled = false
             newPlanetWindow.part3.enabled = false
