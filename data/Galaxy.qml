@@ -124,7 +124,7 @@ Item {
             width: 90
             anchors.bottom: profileButton.top
             size: 10
-            text: "HANDBOOK"
+            text: qsTr("HANDBOOK")
 
             MouseArea {
                 anchors.fill: parent
@@ -139,7 +139,7 @@ Item {
             width: 90
             anchors.bottom: optionsButton.top
             size: 10
-            text: "PROFILE"
+            text: qsTr("PROFILE")
 
             MouseArea {
                 anchors.fill: parent
@@ -154,7 +154,7 @@ Item {
             width: 90
             anchors.bottom: infoButton.top
             size: 10
-            text: "OPTIONS"
+            text: qsTr("OPTIONS")
 
             MouseArea {
                 anchors.fill: parent
@@ -169,7 +169,7 @@ Item {
             width: 90
             anchors.bottom: guitButton.top
             size: 10
-            text: "MORE INFO"
+            text: qsTr("MORE INFO")
 
             MouseArea {
                 anchors.fill: parent
@@ -185,7 +185,7 @@ Item {
             width: 90
             anchors.bottom: parent.bottom
             anchors.left: parent.left
-            text: "QUIT"
+            text: qsTr("QUIT")
             size: 10
 
             MouseArea {

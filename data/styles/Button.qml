@@ -1,6 +1,8 @@
 import QtQuick 2.0
 
 Rectangle {
+    id: button
+
     property alias text: text.text
     property alias size: text.font.pointSize
     property alias buttonArea: area
@@ -21,5 +23,25 @@ Rectangle {
     MouseArea{
         id: area
         anchors.fill: parent
+    }
+    NumberAnimation {
+        alwaysRunToEnd: true
+        running: area.pressed
+        from: 1
+        to: 0.9
+        target: button
+        property: "scale"
+        duration: 100
+        easing.type: Easing.InOutQuad
+    }
+    NumberAnimation {
+        alwaysRunToEnd: true
+        running: !area.pressed
+        from: 0.9
+        to: 1
+        target: button
+        property: "scale"
+        duration: 100
+        easing.type: Easing.InOutQuad
     }
 }

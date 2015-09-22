@@ -14,7 +14,7 @@ Rectangle {
             color: "lightblue"
 
             Text {
-                text: "Close"
+                text: qsTr("Close")
                 font.pixelSize: 20
                 anchors.centerIn: parent
             }

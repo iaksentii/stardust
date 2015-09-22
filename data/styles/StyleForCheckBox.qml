@@ -6,7 +6,7 @@ import QtQuick.Controls.Styles 1.4
 
 CheckBoxStyle {
     property string style: "styles"
-     property string path: "../"+graphicEngine.get("check.png",style)
+     property string path: "../" + graphicEngine.get("check.png",style)
     indicator: Rectangle {
         implicitWidth: 30
         implicitHeight: 30

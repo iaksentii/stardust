@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
+import QtQuick.Controls 1.3
 
 Rectangle {
     visible: true
@@ -15,19 +16,23 @@ Rectangle {
 
         }
     }
-    Rectangle {
-        id: loaderWindow
-        width: loader.width + 2
-        height: loader.height + 2
-        anchors.centerIn: parent
-        border.color: "white"
+//    Rectangle {
+//        id: loaderWindow
+//        width: loader.width + 2
+//        height: loader.height + 2
+//        anchors.centerIn: parent
+//        border.color: "white"
 
         Loader {
             id: loader
             anchors.centerIn: parent
 
         }
-    }
+        BusyIndicator {
+            id: indicator
+                   running: !loader.item
+                   anchors.centerIn: parent
+               }
 
     DropShadow {
         id: rectShadow
