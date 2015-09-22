@@ -213,6 +213,7 @@ Rectangle {
 
                         translator.translate(currentText)
                         profileManager.currentPlayerData.set("languageIndex",currentIndex)
+
                     }
                 }
             }

@@ -30,6 +30,8 @@ public:
     bool getVisible() const;
     void setVisible(bool visible);
 
+    void setIcon(const QString &Icon);
+
 signals:
     void flagChanged();
 

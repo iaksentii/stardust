@@ -26,7 +26,7 @@ Item {
             text: qsTr("NEW GAME")
 
             buttonArea.onClicked: {
-
+                myModel.newGame();
             }
         }
     }
@@ -120,10 +120,10 @@ Item {
 
                         Behavior on opacity { NumberAnimation {duration: 800} }
 
-                        //                        Text {
-                        //                            anchors.centerIn: parent
-                        //                            text: index + " " + type
-                        //                        }
+//                        Text {
+//                            anchors.centerIn: parent
+//                            text: index + " " + type
+//                        }
                     }
 
                     SequentialAnimation {

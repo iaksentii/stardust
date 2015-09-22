@@ -28,11 +28,12 @@ Rectangle {
             anchors.centerIn: parent
 
         }
-        BusyIndicator {
+
+        BusyIndicator{
             id: indicator
-                   running: !loader.item
-                   anchors.centerIn: parent
-               }
+            anchors.centerIn: parent
+            running: !loader.item
+        }
 
 //    DropShadow {
 //        id: rectShadow

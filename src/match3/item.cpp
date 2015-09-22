@@ -50,6 +50,11 @@ void Item::setVisible(bool visible)
 {
     m_visible = visible;
 }
+void Item::setIcon(const QString &Icon)
+{
+    m_Icon = Icon;
+}
+
 
 
 

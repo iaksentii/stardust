@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.2
 ApplicationWindow {
     id:main
     visibility: "FullScreen"
+    visible: true
 
     property var listOfWindows: []
 
@@ -14,6 +15,7 @@ ApplicationWindow {
         onOpenWindowSignal: {
             var component = Qt.createComponent("Loader.qml")
             if (component.status === Component.Ready) {
+
                 var child = component.createObject(main)
 
                 child.sourceName.source = windowName
@@ -42,4 +44,5 @@ ApplicationWindow {
         id: gameConsole
 
     }
+
 }
