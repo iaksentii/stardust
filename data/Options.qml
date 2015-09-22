@@ -201,7 +201,7 @@ Rectangle {
                     id:languageBar
                     width: 120
                     height: 30
-                    currentIndex: profileManager.currentPlayerData.get("languageIndex")
+                    currentIndex: profileManager.currentPlayerData.get("languageIndex") ? profileManager.currentPlayerData.get("languageIndex"):0
                     style: StyleForComboBox{}
 
                     model: ListModel {
@@ -213,8 +213,6 @@ Rectangle {
 
                         translator.translate(currentText)
                         profileManager.currentPlayerData.set("languageIndex",currentIndex)
-
-
                     }
                 }
             }

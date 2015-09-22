@@ -23,7 +23,7 @@ Item {
             width: 90
             anchors.bottom: parent.handBook.top
             size: 10
-            text: "NEW GAME"
+            text: qsTr("NEW GAME")
 
             buttonArea.onClicked: {
 
@@ -56,25 +56,23 @@ Item {
             Button{
                 width: 70
                 height:parent.height
-                text: "Hint"
+                text: qsTr("Hint")
                 buttonArea.onClicked: myModel.hint();
             }
 
             Row {
                 anchors.centerIn: parent
 
-                TextLabel { text: "Score: " }
+                TextLabel { text: qsTr("Score") + ": " }
                 TextLabel {id: currentScore; text: myModel.config.score}
-                TextLabel { text: "       Moves Left: "}
+                TextLabel { text: "       " + qsTr("Moves Left") + ": "}
                 TextLabel { id: movesLeft; text: myModel.config.maxMoves - myModel.config.moves}
-                TextLabel { text: "       Minimum Score: "}
+                TextLabel { text: "       " + qsTr("Minimum Score") + ": "}
                 TextLabel { id: minScore; text: myModel.config.minScore}
             }
         }
-
         GridView {
             id: view
-
             z:0
             anchors.fill: parent
             cellHeight:  mainRect.height / (myModel.config.rows + 1)
@@ -269,7 +267,7 @@ Item {
 
         title: movesNotAvailable ? qsTr("Try again") : qsTr("Victory")
         visible: isVictory || movesNotAvailable
-        text: isVictory ? "Level Completed" : "Level failed"
+        text: isVictory ? qsTr("Level Completed") :qsTr("Level failed")
         onAccepted: myModel.newGame();
     }
 }

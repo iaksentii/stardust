@@ -4,14 +4,16 @@
 <context>
     <name>CreateNewPlanet</name>
     <message>
-        <location filename="../CreateNewPlanet.qml" line="28"/>
+        <location filename="../CreateNewPlanet.qml" line="37"/>
+        <location filename="../CreateNewPlanet.qml" line="197"/>
         <source>Cancel</source>
-        <translation>Отменить</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../CreateNewPlanet.qml" line="43"/>
+        <location filename="../CreateNewPlanet.qml" line="54"/>
+        <location filename="../CreateNewPlanet.qml" line="218"/>
         <source>Ok</source>
-        <translation>Подтвердить</translation>
+        <translation>Хорошо</translation>
     </message>
 </context>
 <context>
@@ -25,28 +27,27 @@
 <context>
     <name>Galaxy</name>
     <message>
-        <location filename="../Galaxy.qml" line="137"/>
+        <location filename="../Galaxy.qml" line="127"/>
         <source>HANDBOOK</source>
-        <translation>Руководство</translation>
+        <translation>Руковоство</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="152"/>
+        <location filename="../Galaxy.qml" line="142"/>
         <source>PROFILE</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="167"/>
+        <location filename="../Galaxy.qml" line="157"/>
         <source>OPTIONS</source>
         <translation>Опции</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="182"/>
+        <location filename="../Galaxy.qml" line="172"/>
         <source>MORE INFO</source>
-        <translation>Доп.
-информация</translation>
+        <translation>Доп. Информация</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="198"/>
+        <location filename="../Galaxy.qml" line="188"/>
         <source>QUIT</source>
         <translation>Выход</translation>
     </message>
@@ -54,81 +55,128 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../MainWindow.qml" line="39"/>
+        <location filename="../MainWindow.qml" line="40"/>
         <source>Profile</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../MainWindow.qml" line="62"/>
+        <location filename="../MainWindow.qml" line="64"/>
         <source>START GAME</source>
         <translation>Начать игру</translation>
     </message>
     <message>
-        <location filename="../MainWindow.qml" line="68"/>
+        <location filename="../MainWindow.qml" line="70"/>
         <source>HANDBOOK</source>
-        <translation>Руководство</translation>
+        <translation>Руковоство</translation>
     </message>
     <message>
-        <location filename="../MainWindow.qml" line="74"/>
+        <location filename="../MainWindow.qml" line="76"/>
         <source>PROFILE</source>
         <translation>Профиль</translation>
     </message>
     <message>
-        <location filename="../MainWindow.qml" line="80"/>
+        <location filename="../MainWindow.qml" line="82"/>
         <source>OPTIONS</source>
         <translation>Опции</translation>
     </message>
     <message>
-        <location filename="../MainWindow.qml" line="86"/>
+        <location filename="../MainWindow.qml" line="88"/>
         <source>MORE INFO</source>
-        <translation>Доп.
-информация</translation>
+        <translation>Доп. Информация</translation>
     </message>
     <message>
-        <location filename="../MainWindow.qml" line="92"/>
+        <location filename="../MainWindow.qml" line="100"/>
         <source>QUIT</source>
         <translation>Выход</translation>
     </message>
 </context>
 <context>
-    <name>Options</name>
+    <name>Match3</name>
     <message>
-        <location filename="../Options.qml" line="43"/>
-        <source>RETURN</source>
-        <translation>Возврат</translation>
+        <location filename="../Match3.qml" line="26"/>
+        <source>NEW GAME</source>
+        <translation>Начать игру</translation>
     </message>
     <message>
-        <location filename="../Options.qml" line="69"/>
+        <location filename="../Match3.qml" line="59"/>
+        <source>Hint</source>
+        <translation>Совет</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="66"/>
+        <source>Score: </source>
+        <translation>Счёт: </translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="68"/>
+        <source>Moves Left: </source>
+        <translation>Осталось шагов: </translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="70"/>
+        <source>Minimum Score: </source>
+        <translation>Мин. счет: </translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="268"/>
+        <source>Try again</source>
+        <translation>Попробуйте снова</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="268"/>
+        <source>Victory</source>
+        <translation>Победа</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="270"/>
+        <source>Level Completed</source>
+        <translation>Уровень завершен</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="270"/>
+        <source>Level failed</source>
+        <translation>ВЫ проиграли</translation>
+    </message>
+</context>
+<context>
+    <name>Options</name>
+    <message>
+        <location filename="../Options.qml" line="44"/>
+        <source>RETURN</source>
+        <translation>Вернуться</translation>
+    </message>
+    <message>
+        <location filename="../Options.qml" line="78"/>
         <source>SOUND</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../Options.qml" line="105"/>
+        <location filename="../Options.qml" line="114"/>
         <source>Enable sound</source>
-        <translation>Включить звук</translation>
+        <translation>Вкл. звук</translation>
     </message>
     <message>
-        <location filename="../Options.qml" line="117"/>
+        <location filename="../Options.qml" line="126"/>
         <source>GRAPHIC</source>
         <translation>Графика</translation>
     </message>
     <message>
-        <location filename="../Options.qml" line="134"/>
+        <location filename="../Options.qml" line="143"/>
         <source>Graphics quality</source>
         <translation>Качество графики</translation>
     </message>
     <message>
-        <location filename="../Options.qml" line="155"/>
+        <location filename="../Options.qml" line="164"/>
         <source>Low</source>
-        <translation>Подтвердить</translation>
+        <translation>Низкое</translation>
     </message>
     <message>
-        <location filename="../Options.qml" line="170"/>
+        <location filename="../Options.qml" line="179"/>
         <source>LOCALIZATION</source>
         <translation>Локализация</translation>
     </message>
     <message>
-        <location filename="../Options.qml" line="185"/>
+        <location filename="../Options.qml" line="194"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
@@ -138,12 +186,12 @@
     <message>
         <location filename="../Profile.qml" line="45"/>
         <source>RETURN</source>
-        <translation>Возврат</translation>
+        <translation>Вернуться</translation>
     </message>
     <message>
         <location filename="../Profile.qml" line="91"/>
         <source>NEW</source>
-        <translation>Новый</translation>
+        <translation>Начать игру</translation>
     </message>
     <message>
         <location filename="../Profile.qml" line="153"/>
