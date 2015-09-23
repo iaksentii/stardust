@@ -120,10 +120,10 @@ Item {
 
                         Behavior on opacity { NumberAnimation {duration: 800} }
 
-//                        Text {
-//                            anchors.centerIn: parent
-//                            text: index + " " + type
-//                        }
+                        //                        Text {
+                        //                            anchors.centerIn: parent
+                        //                            text: index + " " + type
+                        //                        }
                     }
 
                     SequentialAnimation {
@@ -212,6 +212,7 @@ Item {
                         anchors.fill: parent
                         onClicked: {
                             view.currentIndex = index;
+                            // setGlobalScore();
                             if (root.clicked && (index != root.index) && (myModel.get(index).type != 10)) {
                                 root.clicked = false;
 
@@ -234,31 +235,6 @@ Item {
             }
         }
     }
-    //    menuBar: MenuBar {
-    //        Menu {
-    //            title: qsTr("&File")
-    //            MenuItem {
-    //                text: qsTr("&New game")
-    //                onTriggered: myModel.newGame();
-    //            }
-    //            MenuItem {
-    //                text: qsTr("E&xit")
-    //                onTriggered: Qt.quit();
-    //            }
-    //        }
-    //        Menu {
-    //            title: qsTr("Something")
-
-    //            MenuItem {
-    //                text: qsTr("Use hint")
-    //                onTriggered: {
-    //                    root.clicked = false;
-    //                    myModel.hint();
-    //                }
-    //            }
-    //        }
-    //    }
-
     MessageDialog {
         id: messageDialog
 
@@ -268,6 +244,16 @@ Item {
         title: movesNotAvailable ? qsTr("Try again") : qsTr("Victory")
         visible: isVictory || movesNotAvailable
         text: isVictory ? qsTr("Level Completed") :qsTr("Level failed")
-        onAccepted: myModel.newGame();
+        onAccepted:{
+            myModel.newGame();
+            setGlobalScore();
+        }
+    }
+    function setGlobalScore() {
+        galaxyEngine.setResourcesCount(1, myModel.config.getResourses(1));
+        galaxyEngine.setResourcesCount(2, myModel.config.getResourses(2));
+        galaxyEngine.setResourcesCount(3, myModel.config.getResourses(3));
+        galaxyEngine.setResourcesCount(4, myModel.config.getResourses(4));
+        galaxyEngine.setResourcesCount(5, myModel.config.getResourses(5));
     }
 }

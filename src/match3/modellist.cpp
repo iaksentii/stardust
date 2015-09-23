@@ -4,13 +4,12 @@
 
 ModelList::ModelList(QObject *pobj)
     : QAbstractListModel(pobj) {
-
 }
 
 ModelList::ModelList(GameConfig & config, QObject *pobj)
-    :QAbstractListModel(pobj) {
-    m_firstSearchExecuted = false;
+    :QAbstractListModel(pobj)  {
     m_config = config;
+    m_firstSearchExecuted = false;
     m_elementToSwap1 = -1;
     m_elementToSwap2 = -1;
     newGame();
@@ -526,6 +525,14 @@ void ModelList::remove() {
         }
         m_config.setScore(removedItems);
     }
+     if (m_firstSearchExecuted) {
+        for (int i = 0; i < m_removeHorizontalMatch.size(); i++) {
+              m_config.addResourses(m_removeHorizontalMatch[i][0]->getType(),m_removeHorizontalMatch[i].size());
+        }
+        for (int i = 0; i < m_removeVerticalMatch.size(); i++) {
+              m_config.addResourses(m_removeVerticalMatch[i][0]->getType(),m_removeVerticalMatch[i].size());
+        }
+     }
     // removeHorizontalMatch();
     //removeVerticalMatch();
 

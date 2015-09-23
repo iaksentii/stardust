@@ -39,6 +39,8 @@ public:
     int brickSize();
     int getInvisible(int index);
     int getBrick(int index);
+    void addResourses(int type, int count);
+    Q_INVOKABLE int getResourses(int type);
 
 public slots:
 
@@ -79,6 +81,7 @@ private:
     QVector<int> m_brick;
     QVector<int> m_invisible;
     QString m_propertyAnim;
+    int m_resourses[5];
 };
 
 

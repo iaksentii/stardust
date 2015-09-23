@@ -30,7 +30,6 @@ int main(int argc, char *argv[])
     translator.addTranslation("English", "starDust_en.qm");
     translator.addTranslation("Русский", "starDust_ru.qm");
     translator.addTranslation("Українська", "starDust_ua.qm");
-
     engine.rootContext()->setContextProperty("myModel", &model);
     engine.rootContext()->setContextProperty("graphicEngine", &graphicManager);
     engine.rootContext()->setContextProperty("ScreenManager", ScreenManager::Instance());

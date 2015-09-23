@@ -5,8 +5,9 @@
 #include <QJsonDocument>
 #include <QFile>
 
-GameConfig::GameConfig():QObject(nullptr) {
+GameConfig::GameConfig():QObject(nullptr), m_resourses{0} {
     setPropertyAnim("y,x");
+  //  memset(, 0, sizeof(deck));
     m_isVictory = false;
     m_moves = 0;
     m_score = 0;
@@ -145,6 +146,9 @@ GameConfig &GameConfig::operator =(const GameConfig & config) {
     m_types = config.types();
     m_score = config.score();
     m_moves = config.moves();
+    for (int i = 0; i < 5; i++) {
+        m_resourses[i] = 0;
+    }
     return *this;
 }
 
@@ -192,4 +196,14 @@ int GameConfig::getInvisible(int index)
 int GameConfig::getBrick(int index)
 {
     return m_brick[index];
+}
+
+void GameConfig::addResourses(int type, int count)
+{
+     m_resourses[type - 1] += count;
+}
+
+int GameConfig::getResourses(int type)
+{
+    return m_resourses[type - 1];
 }
