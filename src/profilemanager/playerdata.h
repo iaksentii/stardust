@@ -18,8 +18,8 @@ public:
     QJsonObject getJsonObject();
     void fillDefault();
 
-    Q_INVOKABLE void set(QString name, QVariant value);
-    Q_INVOKABLE QVariant get(QString name);
+    Q_INVOKABLE void set(const QString &name, const QVariant &value);
+    Q_INVOKABLE QVariant get(const QString &name);
 
 
 private:

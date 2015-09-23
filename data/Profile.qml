@@ -15,6 +15,7 @@ Rectangle {
 
     property string screen: "profiles"
     property int space: 4
+    property int workWidth: 340
 
     width: 500
     height: 600
@@ -38,152 +39,87 @@ Rectangle {
 
     }
 
-    Button {
+    Column {
+        spacing: space
         anchors.horizontalCenter: parent.horizontalCenter
         y: 70
 
-        visible: profileManager.hasPlayers
+        Button {
+            width: workWidth
 
-        TextLabel{
-            anchors.centerIn: parent
             text: qsTr("RETURN")
+            buttonArea.onClicked: ScreenManager.closeWindow()
         }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: ScreenManager.closeWindow()
-        }
-    }
+        Button {
+            width: workWidth
 
-    Rectangle {
-        id: inputAreaRect
-
-        x: 100
-        y: 150
-
-        width: 200
-        height: 60
-
-        color: "#43d3ca"
-        border.width: 3
-        border.color: "#21a89f"
-        opacity: 0.7
-
-        TextInput {
-            id: inputArea
-            font.pixelSize: 28;
-            anchors.fill: parent
-
-            maximumLength: 12
-
-            text:""
+            text: qsTr("NEW PLAYER")
+            buttonArea.onClicked: ScreenManager.loadWindow("NewPlayer")
         }
 
-    }
+        Row {
+            spacing: space
 
-    Button {
-        id: newBtn
+            Column {
+                spacing: space
 
-        x: inputAreaRect.x + inputAreaRect.width + space
-        y: inputAreaRect.y
+                Rectangle {
+                    id: playersListRect
 
-        width: 100 - space
+                    width: 220
+                    height: 300
 
-        TextLabel{
-            anchors.centerIn: parent
-            font.pointSize: 12
-            text: qsTr("NEW")
-        }
+                    color: "#43d3ca"
+                    border.width: 3
+                    border.color: "#21a89f"
+                    opacity: 0.7
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                profileManager.newPlayer(inputArea.text);
-                inputArea.text = "";
-            }
-        }
-    }
+                    ListView {
+                        id: playersList
 
-    Rectangle {
-        id: playersListRect
+                        anchors.fill: parent
 
-        x: 100
-        y: inputAreaRect.y + inputAreaRect.height + space
+                        highlight: Rectangle {
+                            width: playersListRect.width
 
-        width: 200
-        height: delBtn.height + loadBtn.height + space
+                            radius: 5
+                            opacity: 0.7
+                        }
 
-        color: "#43d3ca"
-        border.width: 3
-        border.color: "#21a89f"
-        opacity: 0.7
+                        model: profileManager.playersListModel
+                        delegate: TextLabel {
+                            x: 5
+                            text: display
 
-        ListView {
-            id: playersList
-
-            anchors.fill: parent
-
-            highlight: Rectangle {
-                width: playersListRect.width
-
-                radius: 5
-                opacity: 0.7
-            }
-
-            model: profileManager.playersListModel
-            delegate: TextLabel {
-                x: 5
-                text: display
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: playersList.currentIndex = model.index
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: playersList.currentIndex = model.index
+                            }
+                        }
+                    }
                 }
             }
-        }
-    }
 
-    Button {
-        id: delBtn
+            Column {
+                spacing: space
 
-        x: playersListRect.x + playersListRect.width + space
-        y: playersListRect.y
+                Button {
+                    width: workWidth - playersList.width - space
 
-        width: 100 - space
+                    text: qsTr("DELETE")
+                    buttonArea.onClicked: profileManager.deletePlayer(playersList.currentItem.text)
+                }
 
-        TextLabel{
-            anchors.centerIn: parent
-            font.pointSize: 12
-            text: qsTr("DELETE")
-        }
+                Button {
+                    width: workWidth - playersList.width - space
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: profileManager.deletePlayer(playersList.currentItem.text)
-        }
-    }
-
-    Button {
-        id: loadBtn
-
-        x: delBtn.x
-        y: delBtn.y + delBtn.height + space
-
-        width: delBtn.width
-
-        TextLabel{
-            anchors.centerIn: parent
-            font.pointSize: 12
-            text: qsTr("LOAD")
-        }
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked:
-            {
-                profileManager.checkedPlayer = playersList.currentItem.text;
-                ScreenManager.loadWindow("PasswordChecking")
-//                profileManager.loadPlayer(playersList.currentItem.text)
+                    text: qsTr("LOAD")
+                    buttonArea.onClicked: {
+                        profileManager.passwordCtrl.checkedPlayer = playersList.currentItem.text;
+                        ScreenManager.loadWindow("PasswordChecking");
+                    }
+                }
             }
         }
     }
@@ -192,8 +128,6 @@ Rectangle {
         target: profileManager
         onCurrentPlayerIndexChanged: playersList.currentIndex = index
     }
-
-
 }
 
 

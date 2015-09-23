@@ -14,8 +14,9 @@ SOURCES += src/main.cpp \
     src/graphicmanager.cpp \
     src/screenmanager.cpp \
     src/solarsystem.cpp \
-    src/playerdata.cpp \
-    src/profilemanager.cpp \
+    src/profilemanager/playerdata.cpp \
+    src/profilemanager/profilemanager.cpp \
+    src/profilemanager/passwordcontroller.cpp \
     src/jsonparser.cpp \
     src/gameconsole.cpp \
     src/match3/modellist.cpp \
@@ -41,8 +42,9 @@ HEADERS += \
     src/graphicmanager.h \
     src/screenmanager.h \
     src/solarsystem.h \
-    src/playerdata.h \
-    src/profilemanager.h \
+    src/profilemanager/playerdata.h \
+    src/profilemanager/profilemanager.h \
+    src/profilemanager/passwordcontroller.h \
     src/jsonparser.h \
     src/gameconsole.h \
     src/match3/modellist.h \
@@ -73,7 +75,6 @@ DISTFILES += \
     data/EmptyPage.qml \
     data/Galaxy.qml \
     data/Loader.qml \
-    data/main.qml \
     data/Options.qml \
     data/SolarSystem.qml \
     data/styles/Button.qml \
@@ -88,6 +89,7 @@ DISTFILES += \
     data/Console.qml \
     data/main.qml \
     data/Match3.qml \
+    data/NewPlayer.qml \
     data/styles/SideBar.qml \
     data/config.json \
     data/Notification.qml

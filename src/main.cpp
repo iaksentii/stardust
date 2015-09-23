@@ -8,7 +8,7 @@
 #include "screenmanager.h"
 #include "graphicmanager.h"
 #include "solarsystem.h"
-#include "profilemanager.h"
+#include "profilemanager/profilemanager.h"
 #include "gameconsole.h"
 #include "translator.h"
 #include "match3/modellist.h"
@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("myModel", &model);
     engine.rootContext()->setContextProperty("graphicEngine", &graphicManager);
     engine.rootContext()->setContextProperty("ScreenManager", ScreenManager::Instance());
-    engine.rootContext()->setContextProperty("graphicEngine", &p);
     engine.rootContext()->setContextProperty("profileManager", ProfileManager::Instance());
     engine.rootContext()->setContextProperty("gameConsolee", &console);
     engine.rootContext()->setContextProperty("translator", &translator);

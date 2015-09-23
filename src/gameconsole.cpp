@@ -1,6 +1,6 @@
 #include "gameconsole.h"
 #include "screenmanager.h"
-#include "profilemanager.h"
+#include "profilemanager/profilemanager.h"
 #include <QApplication>
 #include <QTime>
 #include <QStringList>

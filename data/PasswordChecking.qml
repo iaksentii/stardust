@@ -17,98 +17,69 @@ Rectangle {
     width: 500
     height: 300
 
+
     border.width: 10
     border.color: "#21a89f"
 
     Image {
         id:profilesBG
 
-        fillMode: Image.PreserveAspectCrop
         anchors.fill: parent
-        source: graphicEngine.get("background.jpeg",screen)
+        source: graphicEngine.get("background.jpg",screen)
     }
 
-    FastBlur {
-        anchors.fill: passwordChecking
-
-        source: profilesBG
-        radius: 32
-
-    }
-
-    Button {
+    Column {
+        spacing:  space
         anchors.horizontalCenter: parent.horizontalCenter
         y: 70
 
-        TextLabel{
-            anchors.centerIn: parent
-            text: "RETURN"
+        Button {
+            text: qsTr("RETURN")
+            buttonArea.onClicked: ScreenManager.closeWindow()
         }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: ScreenManager.closeWindow()
-        }
-    }
+        Row {
+            spacing: space
 
+            Rectangle {
+                id: passwordRect
 
-    Rectangle {
-        id: passwordRect
+                width: 200
+                height: 60
 
-        x: 100
-        y: 150
+                color: "#43d3ca"
+                border.width: 3
+                border.color: "#21a89f"
+                opacity: 0.7
 
-        width: 200
-        height: 60
+                TextInput {
+                    id: passwordInput
 
-        color: "#43d3ca"
-        border.width: 3
-        border.color: "#21a89f"
-        opacity: 0.7
+                    echoMode: TextInput.Password
 
-        TextInput {
-            id: passwordInput
+                    font.pixelSize: 28;
+                    anchors.fill: parent
 
-            echoMode: TextInput.Password
+                    maximumLength: 12
 
-            font.pixelSize: 28;
-            anchors.fill: parent
-
-            maximumLength: 12
-
-            text:""
-        }
-
-    }
-
-    Button {
-        id: acceptBtn
-
-        x: passwordRect.x + passwordRect.width + space
-        y: passwordRect.y
-
-        width: 100 - space
-
-        TextLabel{
-            anchors.centerIn: parent
-            font.pointSize: 12
-            text: "ACCEPT"
-        }
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                if (profileManager.confirmPassword(passwordInput.text)) {
-                    profileManager.loadPlayer(profileManager.checkedPlayer)
+                    text:""
                 }
+            }
 
-                ScreenManager.closeWindow();
+            Button {
+                width: 100 - space
+
+                text: qsTr("ACCEPT")
+                buttonArea.onClicked: {
+                    if (profileManager.passwordCtrl.confirmPassword(passwordInput.text)) {
+                        profileManager.loadPlayer(profileManager.passwordCtrl.checkedPlayer)
+                    }
+
+                    ScreenManager.closeWindow();
+                }
             }
         }
     }
-
-
-
 }
 
 

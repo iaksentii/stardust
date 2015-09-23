@@ -60,7 +60,7 @@ ApplicationWindow {
     Component.onCompleted: {
         ScreenManager.loadWindow("MainMenu")
         if (!profileManager.hasPlayers)
-            ScreenManager.loadWindow("Profile")
+            ScreenManager.loadWindow("NewPlayer")
     }
 
     Console {

@@ -28,6 +28,7 @@ void ScreenManager::initMap()
     mapOfFiles["Match3"]    = "Match3.qml";
 //    mapOfFiles["MoreInfo"]   = "qrc:/MoreInfo.qml";
     mapOfFiles["Profile"]    = "Profile.qml";
+    mapOfFiles["NewPlayer"]    = "NewPlayer.qml";
     mapOfFiles["PasswordChecking"]    = "PasswordChecking.qml";
 
     //    mapOfFiles["Test"]       = "qrc:/Test.qml";
