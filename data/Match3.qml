@@ -11,6 +11,7 @@ Item {
     property string screen: "match3"
     property bool clicked: false
     property int index: -1
+    property int moves: 0
 
     width: 1280
     height: 1024
@@ -83,7 +84,7 @@ Item {
             model: myModel
 
             move: Transition {
-
+                    id: moveAnim
                 NumberAnimation {
                     easing.type: Easing.OutCubic
                     properties: myModel.config.propertyAnim
@@ -218,12 +219,13 @@ Item {
 
                                 if (myModel.config.moves < myModel.config.maxMoves) {
                                     root.index = myModel.swapTwoElements(root.index, index);
+                                    root.moves = myModel.config.moves
                                 }
                                 if (root.index != -1 && root.index != -2) {
                                     root.clicked = true;
                                 }
                             }
-                            else if (!root.clicked &&  myModel.get(index).type != 10){
+                            else if (!root.clicked &&  myModel.get(index).type !== 10){
                                 root.clicked = true;
                                 root.index = index;
                             }
@@ -235,19 +237,27 @@ Item {
             }
         }
     }
-    MessageDialog {
-        id: messageDialog
+    //    MessageDialog {
+    //        id: messageDialog
 
+    //        property bool isVictory: myModel.config.isVictory
+    //        property bool  movesNotAvailable: myModel.config.moves === myModel.config.maxMoves
+
+    //        title: movesNotAvailable ? qsTr("Try again") : qsTr("Victory")
+    //        visible: isVictory || movesNotAvailable
+    //        text: isVictory ? qsTr("Level Completed") :qsTr("Level failed")
+    //        onAccepted:{
+    //            myModel.newGame();
+    //            setGlobalScore();
+    //        }
+    //    }
+    Notification{
         property bool isVictory: myModel.config.isVictory
-        property bool  movesNotAvailable: myModel.config.moves === myModel.config.maxMoves
+        property bool  movesNotAvailable: root.moves === myModel.config.maxMoves
 
-        title: movesNotAvailable ? qsTr("Try again") : qsTr("Victory")
+        text: isVictory ? qsTr("Wictory") : qsTr("You lose")
         visible: isVictory || movesNotAvailable
-        text: isVictory ? qsTr("Level Completed") :qsTr("Level failed")
-        onAccepted:{
-            myModel.newGame();
-            setGlobalScore();
-        }
+        textOnButton:  isVictory ? qsTr("Next level") : qsTr("Try again")
     }
     function setGlobalScore() {
         galaxyEngine.setResourcesCount(1, myModel.config.getResourses(1));

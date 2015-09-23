@@ -88,7 +88,8 @@ DISTFILES += \
     data/main.qml \
     data/Match3.qml \
     data/styles/SideBar.qml \
-    data/config.json
+    data/config.json \
+    data/Notification.qml
 lupdate_only{
 SOURCES = *.qml \
           *.js \
