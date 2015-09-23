@@ -76,24 +76,24 @@ Item {
         height: mainWindow.height - mainWindow.height/2
     }
 
-//    SolarSystem {
-//        id: system2
-//        anchors.centerIn: parent
-//        width: mainWindow.width - mainWindow.width/3
-//        height: mainWindow.height - mainWindow.height/2
-//        visible: false
-//    }
-
-//    SolarSystem {
-//        id: system3
-//        anchors.centerIn: parent
-//        width: mainWindow.width - mainWindow.width/3
-//        height: mainWindow.height - mainWindow.height/2
-//        visible: false
-//    }
-
     SideBar {
         id: sideBar
+
+        Button {
+            id: profileButton
+            height: 50
+            width: 90
+            anchors.bottom: sideBar.handBook.top
+            size: 10
+            text: "Match3"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    ScreenManager.loadWindow("MATCH3")
+                }
+            }
+        }
     }
 
     Row {
@@ -243,7 +243,7 @@ Item {
             case 1:
                 if(galaxyEngine.resource1 >= 1) {
                     galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
-                    newPlanetWindow.planetTag[planetNumber] = newPlanetWindow.currentTag
+                    newPlanetWindow.planetTag[planetNumber] = "1"
                     galaxyEngine.resource1 -= 1
                 }
                 else {
@@ -254,6 +254,7 @@ Item {
                     slideTop.from = resource1.y + 20
                     slideTop.to = resource1.y
 
+                    lackOfResources.visible = true
                     slideTopDown.running = true
                 }
 
@@ -261,7 +262,7 @@ Item {
             case 2:
                 if(galaxyEngine.resource2 >= 2 && galaxyEngine.resource1 >= 2) {
                     galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
-                    newPlanetWindow.planetTag[planetNumber] = newPlanetWindow.currentTag
+                    newPlanetWindow.planetTag[planetNumber] = "2"
                     galaxyEngine.resource1 -= 2
                     galaxyEngine.resource2 -= 2
                 }
@@ -273,6 +274,7 @@ Item {
                     slideTop.from = resource1.y + 20
                     slideTop.to = resource1.y
 
+                    lackOfResources.visible = true
                     slideTopDown.running = true
                 }
 
@@ -280,7 +282,7 @@ Item {
             case 3:
                 if(galaxyEngine.resource3 >= 1 && galaxyEngine.resource2 >= 2 && galaxyEngine.resource1 >= 2) {
                     galaxyEngine.setPlanetsSlot(planetNumber, newPlanetWindow.planetImage.source)
-                    newPlanetWindow.planetTag[planetNumber] = newPlanetWindow.currentTag
+                    newPlanetWindow.planetTag[planetNumber] = "3"
                     galaxyEngine.resource1 -= 2
                     galaxyEngine.resource2 -= 2
                     galaxyEngine.resource3 -= 1
@@ -293,6 +295,7 @@ Item {
                     slideTop.from = resource1.y + 20
                     slideTop.to = resource1.y
 
+                    lackOfResources.visible = true
                     slideTopDown.running = true
                 }
                 break;
@@ -303,6 +306,65 @@ Item {
 
         cancelArea.onClicked: {
             newPlanetWindow.visible = false
+        }
+    }
+
+    Rectangle {
+        id: lackOfResources
+
+        anchors.centerIn: parent
+        height: 200
+        width: 400
+        visible: false
+        radius: 3
+        border.width: 10
+        border.color: "#43d3ca"
+
+        Text {
+            anchors.centerIn: parent
+            text: qsTr("You have not enough resources:(")
+        }
+
+        Button {
+            id: okB
+
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: parent.border.width
+            anchors.right: parent.right
+            anchors.rightMargin: parent.border.width
+
+            width: parent.width/3.5
+            height: parent.height/7
+            text: qsTr("Match3")
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    lackOfResources.visible = false
+                    ScreenManager.loadWindow("Match3")
+                }
+            }
+        }
+
+        Button {
+            id: cancelB
+
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: parent.border.width
+            anchors.left: parent.left
+            anchors.leftMargin: parent.border.width
+
+            width: parent.width/3
+            height: parent.height/7
+            text:  qsTr("Cancel")
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    lackOfResources.visible = false
+                }
+            }
+
         }
     }
 }

@@ -17,7 +17,7 @@ Rectangle {
     property string currentTag: ""
     property var planetTag :["add", "add", "add", "add",
                              "add", "add", "add", "add"]
-    property var sunSource: ["1.png", "2.png", "3.png"]
+    property var earthSource: ["1.png", "2.png", "3.png"]
     property int planetNumber: -1
 
     id: newWindow
@@ -128,7 +128,7 @@ Rectangle {
                 onClicked: {
                     part = 1
                     currentTag = "1"
-                    planetImg.source = galaxyEngine.get(sunSource[0], screenName)
+                    planetImg.source = galaxyEngine.get(earthSource[0], screenName)
                 }
             }
         }
@@ -146,7 +146,7 @@ Rectangle {
                 onClicked: {
                     part = 2
                     currentTag = "2"
-                    planetImg.source = galaxyEngine.get(sunSource[1], screenName)
+                    planetImg.source = galaxyEngine.get(earthSource[1], screenName)
                 }
             }
         }
@@ -164,7 +164,7 @@ Rectangle {
                 onClicked: {
                     part = 3
                     currentTag = "3"
-                    planetImg.source = galaxyEngine.get(sunSource[2], screenName)
+                    planetImg.source = galaxyEngine.get(earthSource[2], screenName)
                 }
             }
         }
@@ -181,8 +181,8 @@ Rectangle {
         Column {
             anchors.centerIn: parent
             Image {
-                id: sun
-                source: galaxyEngine.get("sun.png", screenName)
+                id: earth
+                source: galaxyEngine.get("3.png", screenName)
                 height: 200
                 width: 200
 

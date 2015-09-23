@@ -13,9 +13,8 @@ Item {
 
     function setPlanetInfo() {
 
-        newPlanetWindow.chooseType.visible = false;
-//        if(newPlanetWindow.planetTag[planetNumber] === "add")
-//            newPlanetWindow.chooseType.visible = true;
+        if(newPlanetWindow.planetTag[planetNumber] === "add")
+            newPlanetWindow.chooseType.visible = true;
 
         newPlanetWindow.x = currentPlanet.x + planets.xCoords
         newPlanetWindow.y = currentPlanet.y + planets.yCoords + 3.5*currentPlanet.height
@@ -448,21 +447,22 @@ Item {
 
             SequentialAnimation {
                 running: true
-                loops: 10
+                loops: -1
+
 
                 NumberAnimation {
                     target: sunShine;
                     duration: 900;
                     property: "rotation";
-                    from: 0
-//                    to: 90
+//                    from: 0
+                    to: 20
                 }
                 NumberAnimation {
                     target: sunShine;
                     duration: 900;
                     property: "rotation";
-                    from: -90
-//                    to: 0
+//                    from: -90
+                    to: 0
                 }
             }
         }
