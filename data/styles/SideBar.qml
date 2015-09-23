@@ -43,6 +43,7 @@ Rectangle {
         size: 10
         text: qsTr("PROFILE")
 
+
         MouseArea {
             anchors.fill: parent
             onClicked: {

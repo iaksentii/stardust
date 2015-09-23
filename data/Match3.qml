@@ -55,23 +55,23 @@ Item {
             color: "#21a89f"
 
             Button{
-                width: 70
+                width: 90
                 height:parent.height
                 text: qsTr("Hint")
+                scale: 1
+                clip: false
                 buttonArea.onClicked: myModel.hint();
             }
 
             Row {
                 anchors.centerIn: parent
-
-                TextLabel { text: qsTr("Score") + ": " }
-                TextLabel {id: currentScore; text: myModel.config.score}
-                TextLabel { text: "       " + qsTr("Moves Left") + ": "}
-                TextLabel { id: movesLeft; text: myModel.config.maxMoves - myModel.config.moves}
-                TextLabel { text: "       " + qsTr("Minimum Score") + ": "}
-                TextLabel { id: minScore; text: myModel.config.minScore}
+                spacing: 20
+                TextLabel { text: qsTr("Score") + ": " + myModel.config.score; font.pointSize: 16; color: "black"}
+                TextLabel { text: qsTr("Moves Left") + ": " + (myModel.config.maxMoves - myModel.config.moves);font.pointSize: 16; color: "black"}
+                TextLabel { text: qsTr("Minimum Score") + ": " + myModel.config.minScore;font.pointSize: 16; color: "black"}
             }
         }
+
         GridView {
             id: view
             z:0
@@ -84,7 +84,7 @@ Item {
             model: myModel
 
             move: Transition {
-                    id: moveAnim
+                id: moveAnim
                 NumberAnimation {
                     easing.type: Easing.OutCubic
                     properties: myModel.config.propertyAnim
@@ -258,7 +258,7 @@ Item {
         property bool isVictory: myModel.config.isVictory
         property bool  movesNotAvaliable: root.moves === myModel.config.maxMoves
 
-        text: isVictory ? qsTr("Wictory") : qsTr("You lose")
+        text: isVictory ? qsTr("Victory") : qsTr("You lose")
         visible: false
 
         button.text:  isVictory ? qsTr("Next level") : qsTr("Try again")

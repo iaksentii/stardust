@@ -88,12 +88,12 @@
 <context>
     <name>Match3</name>
     <message>
-        <location filename="../Match3.qml" line="26"/>
+        <location filename="../Match3.qml" line="27"/>
         <source>NEW GAME</source>
         <translation>Почати гру</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="59"/>
+        <location filename="../Match3.qml" line="60"/>
         <source>Hint</source>
         <translation>Порада</translation>
     </message>
@@ -110,39 +110,55 @@
         <translation type="obsolete">Мін. рахунок: </translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="66"/>
+        <location filename="../Match3.qml" line="67"/>
         <source>Score</source>
         <translation>Гучність</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="68"/>
+        <location filename="../Match3.qml" line="69"/>
         <source>Moves Left</source>
         <translation>Кроків залишилось</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="70"/>
+        <location filename="../Match3.qml" line="71"/>
         <source>Minimum Score</source>
         <translation>Мін. рахунок</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="244"/>
+        <location filename="../Match3.qml" line="258"/>
+        <source>You lose</source>
+        <translation>Ви прграграли</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="260"/>
         <source>Try again</source>
         <translation>Спробуй знову</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="244"/>
+        <location filename="../Match3.qml" line="260"/>
+        <source>Next level</source>
+        <translation>Наст. рівень</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="258"/>
         <source>Victory</source>
         <translation>Перемога</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="246"/>
         <source>Level Completed</source>
         <translation>Рівень завершено</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="246"/>
         <source>Level failed</source>
         <translation>Рівень не пройдено</translation>
+    </message>
+</context>
+<context>
+    <name>Notification</name>
+    <message>
+        <location filename="../Notification.qml" line="41"/>
+        <source>Quit</source>
+        <translation>Вихід</translation>
     </message>
 </context>
 <context>

@@ -67,6 +67,7 @@ Rectangle {
             }
         }
         Button {
+
             text: qsTr("HANDBOOK")
             buttonArea.onClicked: {
                 ScreenManager.loadWindow("FFFF")

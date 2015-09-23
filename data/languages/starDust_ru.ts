@@ -60,7 +60,7 @@
     <message>
         <location filename="../MainWindow.qml" line="70"/>
         <source>HANDBOOK</source>
-        <translation>Руковоство</translation>
+        <translation>Cправочник</translation>
     </message>
     <message>
         <location filename="../MainWindow.qml" line="76"/>
@@ -75,7 +75,8 @@
     <message>
         <location filename="../MainWindow.qml" line="88"/>
         <source>MORE INFO</source>
-        <translation>Доп. Информация</translation>
+        <translation>Дополнительная
+информация</translation>
     </message>
     <message>
         <location filename="../MainWindow.qml" line="100"/>
@@ -86,12 +87,12 @@
 <context>
     <name>Match3</name>
     <message>
-        <location filename="../Match3.qml" line="26"/>
+        <location filename="../Match3.qml" line="27"/>
         <source>NEW GAME</source>
         <translation>Начать игру</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="59"/>
+        <location filename="../Match3.qml" line="60"/>
         <source>Hint</source>
         <translation>Совет</translation>
     </message>
@@ -108,39 +109,56 @@
         <translation type="obsolete">Мин. счет: </translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="66"/>
+        <location filename="../Match3.qml" line="67"/>
         <source>Score</source>
         <translation>Счёт</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="68"/>
+        <location filename="../Match3.qml" line="69"/>
         <source>Moves Left</source>
         <translation>Осталось шагов</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="70"/>
+        <location filename="../Match3.qml" line="71"/>
         <source>Minimum Score</source>
         <translation>Мин. счет</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="244"/>
-        <source>Try again</source>
-        <translation>Попробуйте снова</translation>
+        <location filename="../Match3.qml" line="258"/>
+        <source>You lose</source>
+        <translation>Вы проиграли</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="244"/>
+        <location filename="../Match3.qml" line="260"/>
+        <source>Try again</source>
+        <translation>Попробуйте 
+снова</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="260"/>
+        <source>Next level</source>
+        <translation>След. уровень</translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="258"/>
         <source>Victory</source>
         <translation>Победа</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="246"/>
         <source>Level Completed</source>
         <translation>Уровень завершен</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="246"/>
         <source>Level failed</source>
         <translation>ВЫ проиграли</translation>
+    </message>
+</context>
+<context>
+    <name>Notification</name>
+    <message>
+        <location filename="../Notification.qml" line="41"/>
+        <source>Quit</source>
+        <translation>Выход</translation>
     </message>
 </context>
 <context>
@@ -214,7 +232,7 @@
     <message>
         <location filename="../styles/SideBar.qml" line="33"/>
         <source>HANDBOOK</source>
-        <translation>Руковоство</translation>
+        <translation>Cправочник</translation>
     </message>
     <message>
         <location filename="../styles/SideBar.qml" line="44"/>
@@ -229,8 +247,8 @@
     <message>
         <location filename="../styles/SideBar.qml" line="74"/>
         <source>MORE INFO</source>
-        <translation>Доп.
-Информация</translation>
+        <translation>Дополнительная
+информация</translation>
     </message>
     <message>
         <location filename="../styles/SideBar.qml" line="90"/>

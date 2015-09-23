@@ -19,6 +19,8 @@ Rectangle {
         anchors.centerIn: parent
         font.pointSize: 16
         color: "black"
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
     }
     MouseArea{
         id: area
