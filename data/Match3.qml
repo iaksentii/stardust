@@ -266,6 +266,8 @@ Item {
             root.moves = 0
             visible = false
             myModel.newGame()
+            setGlobalScore()
+            console.log(myModel.config.getResourses(1))
         }
     }
     function setGlobalScore() {

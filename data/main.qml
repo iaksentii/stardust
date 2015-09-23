@@ -51,6 +51,8 @@ ApplicationWindow {
 
                 listOfWindows[i] = child
             }
+
+            gameConsole.parent = listOfWindows[listOfWindows.length - 1]
         }
     }
 

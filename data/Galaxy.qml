@@ -126,74 +126,101 @@ Item {
         }
 
         Rectangle {
+
             property alias resource1Count : resource1Count
+
             id: resource1
-            color: "#f56a82";
+            border.width: 3
+            border.color: "#21a89f"
+            color: "#43d3ca"
             opacity: 0.7
-            border.color: "white";
-            border.width: 1;
             height: parent.height
             width: parent.width/10
 
-            Text {
-                id: resource1Count
-                anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.resource1.toString())
-                color: "black";
-            }
+            Image {
 
-            MouseArea {
+                source: galaxyEngine.get("plazma.png", screenName)
                 anchors.fill: parent
+
+                Text {
+                    id: resource1Count
+                    anchors.bottom: parent.bottom
+                    text: qsTr(galaxyEngine.resource1.toString())
+                    color: "white";
+                    font.bold: true
+                    font.pixelSize: 20
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                }
             }
         }
         Rectangle {
             property alias resource2Count : resource2Count
             id: resource2
-            color: "#91D4FA";
+            border.width: 3
+            border.color: "#21a89f"
+            color: "#43d3ca"
             opacity: 0.7
-            border.color: "white";
-            border.width: 1;
             height: parent.height
             width: parent.width/10
 
-            Text {
-                id: resource2Count
-                anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.resource2.toString())
-                color: "black";
-            }
-            MouseArea {
+            Image {
+
+                source: galaxyEngine.get("water.png", screenName)
                 anchors.fill: parent
+
+                Text {
+                    id: resource2Count
+                    anchors.bottom: parent.bottom
+                    text: qsTr(galaxyEngine.resource2.toString())
+                    color: "white";
+                    font.bold: true
+                    font.pixelSize: 20
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                }
             }
         }
         Rectangle {
             property alias resource3Count : resource3Count
             id: resource3
-            color: "#F7FA91";
+            border.width: 3
+            border.color: "#21a89f"
+            color: "#43d3ca"
             opacity: 0.7
-            border.color: "white"
-            border.width: 1
             height: parent.height
             width: parent.width/10
 
-            Text {
-                id: resource3Count
-                anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.resource3.toString())
-                color: "black";
-            }
+            Image {
 
-            MouseArea {
+                source: galaxyEngine.get("metal.png", screenName)
                 anchors.fill: parent
+
+                Text {
+                    id: resource3Count
+                    anchors.bottom: parent.bottom
+                    text: qsTr(galaxyEngine.resource3.toString())
+                    color: "white";
+                    font.bold: true
+                    font.pixelSize: 20
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                }
             }
         }
         Rectangle {
             property alias resource4Count : resource4Count
             id: resource4
-            color: "#919BFA"
+            border.width: 3
+            border.color: "#21a89f"
+            color: "#43d3ca"
             opacity: 0.7
-            border.color: "white"
-            border.width: 1
             height: parent.height
             width: parent.width/10
 
@@ -201,7 +228,9 @@ Item {
                 id: resource4Count
                 anchors.bottom: parent.bottom
                 text: qsTr(galaxyEngine.resource4.toString())
-                color: "black"
+                color: "white"
+                font.bold: true
+                font.pixelSize: 20
             }
             MouseArea {
                 anchors.fill: parent
@@ -210,10 +239,10 @@ Item {
         Rectangle {
             property alias resource5Count : resource5Count
             id: resource5
-            color: "#66FFCC"
+            border.width: 3
+            border.color: "#21a89f"
+            color: "#43d3ca"
             opacity: 0.7
-            border.color: "white"
-            border.width: 1
             height: parent.height
             width: parent.width/10
 
@@ -221,7 +250,9 @@ Item {
                 id: resource5Count
                 anchors.bottom: parent.bottom
                 text: qsTr(galaxyEngine.resource5.toString())
-                color: "black"
+                color: "white"
+                font.bold: true
+                font.pixelSize: 20
             }
             MouseArea {
                 anchors.fill: parent
@@ -310,15 +341,17 @@ Item {
     }
 
     Rectangle {
-        id: lackOfResources
 
+        id: lackOfResources
         anchors.centerIn: parent
         height: 200
         width: 400
         visible: false
         radius: 3
-        border.width: 10
-        border.color: "#43d3ca"
+        border.width: 3
+        border.color: "#21a89f"
+        color: "#43d3ca"
+        opacity: 0.7
 
         Text {
             anchors.centerIn: parent
