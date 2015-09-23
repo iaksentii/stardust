@@ -13,6 +13,8 @@ ApplicationWindow {
     Connections {
         target: ScreenManager
         onOpenWindowSignal: {
+            translator.translate(profileManager.currentPlayerData.get("language"))
+
             var component = Qt.createComponent("Loader.qml")
             if (component.status === Component.Ready) {
 
@@ -30,6 +32,24 @@ ApplicationWindow {
                 var element = listOfWindows.pop()
                 element.destroy()
                 gameConsole.parent = listOfWindows[listOfWindows.length-1]
+            }
+        }
+
+    }
+
+    Connections {
+        target: translator
+        onLanguageChanged : {
+            var component = Qt.createComponent("Loader.qml")
+
+            for (var i = 0; i < listOfWindows.length; i++) {
+                var windowName = listOfWindows[i].sourceName.source
+                listOfWindows[i].destroy()
+
+                var child = component.createObject(main)
+                child.sourceName.source = windowName
+
+                listOfWindows[i] = child
             }
         }
     }

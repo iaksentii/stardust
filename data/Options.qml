@@ -201,7 +201,7 @@ Rectangle {
                     id:languageBar
                     width: 120
                     height: 30
-                    currentIndex: profileManager.currentPlayerData.get("languageIndex") ? profileManager.currentPlayerData.get("languageIndex"):0
+                    currentIndex: profileManager.currentPlayerData.get("languageIndex")
                     style: StyleForComboBox{}
 
                     model: ListModel {
@@ -209,11 +209,13 @@ Rectangle {
                         ListElement{ text: "Русский"}
                         ListElement{ text: "Українська"}
                     }
-                    onCurrentTextChanged:   {
 
-                        translator.translate(currentText)
-                        profileManager.currentPlayerData.set("languageIndex",currentIndex)
-
+                    onCurrentIndexChanged: {
+                        if (currentIndex !== profileManager.currentPlayerData.get("languageIndex")) {
+                            translator.translate(currentText)
+                            profileManager.currentPlayerData.set("languageIndex",currentIndex)
+                            profileManager.currentPlayerData.set("language",currentText)
+                        }
                     }
                 }
             }
