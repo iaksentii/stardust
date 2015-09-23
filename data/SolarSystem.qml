@@ -1,7 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
-import galaxy.engine 1.0
 import "sceneEngine.js" as Engine
 import "."
 
@@ -14,37 +13,41 @@ Item {
 
     function setPlanetInfo() {
 
+        newPlanetWindow.chooseType.visible = false;
+//        if(newPlanetWindow.planetTag[planetNumber] === "add")
+//            newPlanetWindow.chooseType.visible = true;
+
         newPlanetWindow.x = currentPlanet.x + planets.xCoords
         newPlanetWindow.y = currentPlanet.y + planets.yCoords + 3.5*currentPlanet.height
 
         newPlanetWindow.planetName.text = galaxyEngine.getPlanetsName(planetNumber)
         newPlanetWindow.planetImage.source = currentPlanet.source
 
-        newPlanetWindow.part1.enabled = true
-        newPlanetWindow.part2.enabled = true
-        newPlanetWindow.part3.enabled = true
+        newPlanetWindow.part1.visible = true
+        newPlanetWindow.part2.visible = true
+        newPlanetWindow.part3.visible = true
 
         switch (newPlanetWindow.planetTag[planetNumber]) {
 
         case "1":
-            newPlanetWindow.part1.enabled = false
-            newPlanetWindow.part2.enabled = true
-            newPlanetWindow.part3.enabled = true
+            newPlanetWindow.part1.visible = false
+            newPlanetWindow.part2.visible = true
+            newPlanetWindow.part3.visible = true
             break;
         case "2":
-            newPlanetWindow.part1.enabled = false
-            newPlanetWindow.part2.enabled = false
-            newPlanetWindow.part3.enabled = true
+            newPlanetWindow.part1.visible = false
+            newPlanetWindow.part2.visible = false
+            newPlanetWindow.part3.visible = true
             break;
         case "3":
-            newPlanetWindow.part1.enabled = false
-            newPlanetWindow.part2.enabled = false
-            newPlanetWindow.part3.enabled = false
+            newPlanetWindow.part1.visible = false
+            newPlanetWindow.part2.visible = false
+            newPlanetWindow.part3.visible = false
             break;
         default:
-            newPlanetWindow.part1.enabled = true
-            newPlanetWindow.part2.enabled = true
-            newPlanetWindow.part3.enabled = true
+            newPlanetWindow.part1.visible = true
+            newPlanetWindow.part2.visible = true
+            newPlanetWindow.part3.visible = true
             break;
         }
 
@@ -417,6 +420,49 @@ Item {
 
                         setPlanetInfo()
                     }
+                }
+            }
+        }
+
+        Rectangle {
+
+            id: sun
+            x: parent.width / 2
+            y: parent.height / 2
+            height: 200
+            width: 200
+            color: "transparent"
+
+            Image {
+                id: sunShine
+                source: galaxyEngine.get("sunshine.png", screenName)
+                anchors.fill: parent
+            }
+            Image {
+                id: sunCore
+                source: galaxyEngine.get("sun.png", screenName)
+                anchors.centerIn: parent
+                height: 150
+                width: 150
+            }
+
+            SequentialAnimation {
+                running: true
+                loops: 10
+
+                NumberAnimation {
+                    target: sunShine;
+                    duration: 900;
+                    property: "rotation";
+                    from: 0
+//                    to: 90
+                }
+                NumberAnimation {
+                    target: sunShine;
+                    duration: 900;
+                    property: "rotation";
+                    from: -90
+//                    to: 0
                 }
             }
         }

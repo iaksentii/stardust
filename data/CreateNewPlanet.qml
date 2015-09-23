@@ -1,15 +1,15 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
-import galaxy.engine 1.0
 import "styles"
 
 Rectangle {
     property alias okArea: okMouseArea
     property alias cancelArea: cancelMouseArea
-    property alias part1: part1Area
-    property alias part2: part2Area
-    property alias part3: part3Area
+    property alias part1: part1
+    property alias part2: part2
+    property alias part3: part3
+    property alias chooseType: planetType
     property TextInput planetName: planetName
     property Image planetImage: planetImg
     property string screenName: "playField"
@@ -17,6 +17,7 @@ Rectangle {
     property string currentTag: ""
     property var planetTag :["add", "add", "add", "add",
                              "add", "add", "add", "add"]
+    property var sunSource: ["1.png", "2.png", "3.png"]
     property int planetNumber: -1
 
     id: newWindow
@@ -127,7 +128,7 @@ Rectangle {
                 onClicked: {
                     part = 1
                     currentTag = "1"
-                    planetImg.source = galaxyEngine.get("1.png", screenName)
+                    planetImg.source = galaxyEngine.get(sunSource[0], screenName)
                 }
             }
         }
@@ -145,7 +146,7 @@ Rectangle {
                 onClicked: {
                     part = 2
                     currentTag = "2"
-                    planetImg.source = galaxyEngine.get("2.png", screenName)
+                    planetImg.source = galaxyEngine.get(sunSource[1], screenName)
                 }
             }
         }
@@ -163,7 +164,7 @@ Rectangle {
                 onClicked: {
                     part = 3
                     currentTag = "3"
-                    planetImg.source = galaxyEngine.get("3.png", screenName)
+                    planetImg.source = galaxyEngine.get(sunSource[2], screenName)
                 }
             }
         }
@@ -174,52 +175,22 @@ Rectangle {
         anchors.fill: parent
         color: "#21a89f"
         border.width: 10
-        visible: false
         border.color: "#43d3ca"
+        visible: true
 
-        MouseArea {
-            anchors.fill: planetType
-        }
+        Column {
+            anchors.centerIn: parent
+            Image {
+                id: sun
+                source: galaxyEngine.get("sun.png", screenName)
+                height: 200
+                width: 200
 
-        Button {
-            id: cancelB
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: parent.border.width
-            anchors.left: parent.left
-            anchors.leftMargin: parent.border.width
-
-            width: parent.width/3.5
-            height: parent.height/7
-            text:  qsTr("Cancel")
-
-            MouseArea {
-                id: cancelArea
-                anchors.fill: parent
-
-                onClicked: {
-                    newPlanetWindow.visible = false
-                }
-            }
-        }
-
-        Button {
-            id: okB
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: parent.border.width
-            anchors.right: parent.right
-            anchors.rightMargin: parent.border.width
-
-            width: parent.width/3.5
-            height: parent.height/7
-            text: qsTr("Ok")
-
-
-            MouseArea {
-                id: okArea
-                anchors.fill: parent
-
-                onClicked: {
-                    planetType.visible = false
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        planetType.visible = false
+                    }
                 }
             }
         }
