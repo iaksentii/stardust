@@ -220,6 +220,8 @@ Item {
                                 if (myModel.config.moves < myModel.config.maxMoves) {
                                     root.index = myModel.swapTwoElements(root.index, index);
                                     root.moves = myModel.config.moves
+                                    if ( not.isVictory ||not.movesNotAvaliable)
+                                        not.visible = true;
                                 }
                                 if (root.index != -1 && root.index != -2) {
                                     root.clicked = true;
@@ -252,12 +254,19 @@ Item {
     //        }
     //    }
     Notification{
+        id: not
         property bool isVictory: myModel.config.isVictory
-        property bool  movesNotAvailable: root.moves === myModel.config.maxMoves
+        property bool  movesNotAvaliable: root.moves === myModel.config.maxMoves
 
         text: isVictory ? qsTr("Wictory") : qsTr("You lose")
-        visible: isVictory || movesNotAvailable
-        textOnButton:  isVictory ? qsTr("Next level") : qsTr("Try again")
+        visible: false
+
+        button.text:  isVictory ? qsTr("Next level") : qsTr("Try again")
+        button.buttonArea.onClicked: {
+            root.moves = 0
+            visible = false
+            myModel.newGame()
+        }
     }
     function setGlobalScore() {
         galaxyEngine.setResourcesCount(1, myModel.config.getResourses(1));

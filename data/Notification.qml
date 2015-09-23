@@ -5,7 +5,7 @@ Rectangle {
     width: 400
     height: 400
 
-    property alias textOnButton: button.text
+    property alias button: button
     property alias text: text.text
     property alias size: text.font.pointSize
     property alias buttonArea: area
@@ -29,10 +29,7 @@ Rectangle {
     Row{
         spacing :10
     Button{
-        buttonArea.onClicked: {
-            notification.visible = false
-            myModel.newGame()
-        }
+        //buttonArea.onClicked:
         id: button
         width: 100
         size: 10
