@@ -94,5 +94,6 @@ lupdate_only{
 SOURCES = *.qml \
           *.js \
           data/*.qml \
-          data/*.js
+          data/*.js\
+          data/styles/*.qml
 }

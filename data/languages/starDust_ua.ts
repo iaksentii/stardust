@@ -4,14 +4,12 @@
 <context>
     <name>CreateNewPlanet</name>
     <message>
-        <location filename="../CreateNewPlanet.qml" line="37"/>
-        <location filename="../CreateNewPlanet.qml" line="197"/>
+        <location filename="../CreateNewPlanet.qml" line="41"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../CreateNewPlanet.qml" line="54"/>
-        <location filename="../CreateNewPlanet.qml" line="218"/>
+        <location filename="../CreateNewPlanet.qml" line="58"/>
         <source>Ok</source>
         <translation>Добре</translation>
     </message>
@@ -27,30 +25,25 @@
 <context>
     <name>Galaxy</name>
     <message>
-        <location filename="../Galaxy.qml" line="127"/>
         <source>HANDBOOK</source>
-        <translation>Посібник</translation>
+        <translation type="obsolete">Посібник</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="142"/>
         <source>PROFILE</source>
-        <translation>Профіль</translation>
+        <translation type="obsolete">Профіль</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="157"/>
         <source>OPTIONS</source>
-        <translation>Опції</translation>
+        <translation type="obsolete">Опції</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="172"/>
         <source>MORE INFO</source>
-        <translation>Додаткова
+        <translation type="obsolete">Додаткова
 інформація</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="188"/>
         <source>QUIT</source>
-        <translation>Вихід</translation>
+        <translation type="obsolete">Вихід</translation>
     </message>
 </context>
 <context>
@@ -105,37 +98,49 @@
         <translation>Порада</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="66"/>
         <source>Score: </source>
-        <translation>Рахунок: </translation>
+        <translation type="obsolete">Рахунок: </translation>
+    </message>
+    <message>
+        <source>Moves Left: </source>
+        <translation type="obsolete">Кроків залишилось: </translation>
+    </message>
+    <message>
+        <source>Minimum Score: </source>
+        <translation type="obsolete">Мін. рахунок: </translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="66"/>
+        <source>Score</source>
+        <translation>Гучність</translation>
     </message>
     <message>
         <location filename="../Match3.qml" line="68"/>
-        <source>Moves Left: </source>
-        <translation>Кроків залишилось: </translation>
+        <source>Moves Left</source>
+        <translation>Кроків залишилось</translation>
     </message>
     <message>
         <location filename="../Match3.qml" line="70"/>
-        <source>Minimum Score: </source>
-        <translation>Мін. рахунок: </translation>
+        <source>Minimum Score</source>
+        <translation>Мін. рахунок</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="268"/>
+        <location filename="../Match3.qml" line="244"/>
         <source>Try again</source>
         <translation>Спробуй знову</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="268"/>
+        <location filename="../Match3.qml" line="244"/>
         <source>Victory</source>
         <translation>Перемога</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="270"/>
+        <location filename="../Match3.qml" line="246"/>
         <source>Level Completed</source>
         <translation>Рівень завершено</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="270"/>
+        <location filename="../Match3.qml" line="246"/>
         <source>Level failed</source>
         <translation>Рівень не пройдено</translation>
     </message>
@@ -186,24 +191,53 @@
 <context>
     <name>Profile</name>
     <message>
-        <location filename="../Profile.qml" line="45"/>
+        <location filename="../Profile.qml" line="47"/>
         <source>RETURN</source>
         <translation>Повернутися</translation>
     </message>
     <message>
-        <location filename="../Profile.qml" line="91"/>
+        <location filename="../Profile.qml" line="93"/>
         <source>NEW</source>
         <translation>Новий</translation>
     </message>
     <message>
-        <location filename="../Profile.qml" line="153"/>
+        <location filename="../Profile.qml" line="155"/>
         <source>DELETE</source>
         <translation>Усунути</translation>
     </message>
     <message>
-        <location filename="../Profile.qml" line="173"/>
+        <location filename="../Profile.qml" line="175"/>
         <source>LOAD</source>
         <translation>Завантажити</translation>
+    </message>
+</context>
+<context>
+    <name>SideBar</name>
+    <message>
+        <location filename="../styles/SideBar.qml" line="33"/>
+        <source>HANDBOOK</source>
+        <translation>Посібник</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="44"/>
+        <source>PROFILE</source>
+        <translation>Профіль</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="59"/>
+        <source>OPTIONS</source>
+        <translation>Опції</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="74"/>
+        <source>MORE INFO</source>
+        <translation>Додаткова
+інформація</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="90"/>
+        <source>QUIT</source>
+        <translation>Вихід</translation>
     </message>
 </context>
 </TS>

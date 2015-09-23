@@ -4,14 +4,12 @@
 <context>
     <name>CreateNewPlanet</name>
     <message>
-        <location filename="../CreateNewPlanet.qml" line="37"/>
-        <location filename="../CreateNewPlanet.qml" line="197"/>
+        <location filename="../CreateNewPlanet.qml" line="41"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../CreateNewPlanet.qml" line="54"/>
-        <location filename="../CreateNewPlanet.qml" line="218"/>
+        <location filename="../CreateNewPlanet.qml" line="58"/>
         <source>Ok</source>
         <translation>Ok</translation>
     </message>
@@ -27,29 +25,24 @@
 <context>
     <name>Galaxy</name>
     <message>
-        <location filename="../Galaxy.qml" line="127"/>
         <source>HANDBOOK</source>
-        <translation>HANDBOOK</translation>
+        <translation type="obsolete">HANDBOOK</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="142"/>
         <source>PROFILE</source>
-        <translation>PROFILE</translation>
+        <translation type="obsolete">PROFILE</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="157"/>
         <source>OPTIONS</source>
-        <translation>OPTIONS</translation>
+        <translation type="obsolete">OPTIONS</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="172"/>
         <source>MORE INFO</source>
-        <translation>MORE INFO</translation>
+        <translation type="obsolete">MORE INFO</translation>
     </message>
     <message>
-        <location filename="../Galaxy.qml" line="188"/>
         <source>QUIT</source>
-        <translation>QUIT</translation>
+        <translation type="obsolete">QUIT</translation>
     </message>
 </context>
 <context>
@@ -103,37 +96,49 @@
         <translation>Hint</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="66"/>
         <source>Score: </source>
-        <translation>Score: </translation>
+        <translation type="obsolete">Score: </translation>
+    </message>
+    <message>
+        <source>Moves Left: </source>
+        <translation type="obsolete">Moves Left: </translation>
+    </message>
+    <message>
+        <source>Minimum Score: </source>
+        <translation type="obsolete">Minimum Score: </translation>
+    </message>
+    <message>
+        <location filename="../Match3.qml" line="66"/>
+        <source>Score</source>
+        <translation>Score</translation>
     </message>
     <message>
         <location filename="../Match3.qml" line="68"/>
-        <source>Moves Left: </source>
-        <translation>Moves Left: </translation>
+        <source>Moves Left</source>
+        <translation>Moves Left</translation>
     </message>
     <message>
         <location filename="../Match3.qml" line="70"/>
-        <source>Minimum Score: </source>
-        <translation>Minimum Score: </translation>
+        <source>Minimum Score</source>
+        <translation>Minimum Score</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="268"/>
+        <location filename="../Match3.qml" line="244"/>
         <source>Try again</source>
         <translation>Try again</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="268"/>
+        <location filename="../Match3.qml" line="244"/>
         <source>Victory</source>
         <translation>Victory</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="270"/>
+        <location filename="../Match3.qml" line="246"/>
         <source>Level Completed</source>
         <translation>Level Completed</translation>
     </message>
     <message>
-        <location filename="../Match3.qml" line="270"/>
+        <location filename="../Match3.qml" line="246"/>
         <source>Level failed</source>
         <translation>Level failed</translation>
     </message>
@@ -184,24 +189,52 @@
 <context>
     <name>Profile</name>
     <message>
-        <location filename="../Profile.qml" line="45"/>
+        <location filename="../Profile.qml" line="47"/>
         <source>RETURN</source>
         <translation>RETURN</translation>
     </message>
     <message>
-        <location filename="../Profile.qml" line="91"/>
+        <location filename="../Profile.qml" line="93"/>
         <source>NEW</source>
         <translation>NEW GAME</translation>
     </message>
     <message>
-        <location filename="../Profile.qml" line="153"/>
+        <location filename="../Profile.qml" line="155"/>
         <source>DELETE</source>
         <translation>DELETE</translation>
     </message>
     <message>
-        <location filename="../Profile.qml" line="173"/>
+        <location filename="../Profile.qml" line="175"/>
         <source>LOAD</source>
         <translation>LOAD</translation>
+    </message>
+</context>
+<context>
+    <name>SideBar</name>
+    <message>
+        <location filename="../styles/SideBar.qml" line="33"/>
+        <source>HANDBOOK</source>
+        <translation>HANDBOOK</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="44"/>
+        <source>PROFILE</source>
+        <translation>PROFILE</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="59"/>
+        <source>OPTIONS</source>
+        <translation>OPTIONS</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="74"/>
+        <source>MORE INFO</source>
+        <translation>MORE INFO</translation>
+    </message>
+    <message>
+        <location filename="../styles/SideBar.qml" line="90"/>
+        <source>QUIT</source>
+        <translation>QUIT</translation>
     </message>
 </context>
 </TS>
