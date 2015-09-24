@@ -267,7 +267,15 @@ Item {
             visible = false
             myModel.newGame()
             setGlobalScore()
-            console.log(myModel.config.getResourses(1))
+            console.log("notif"+myModel.config.getResourses(1) +
+                        myModel.config.getResourses(2) +myModel.config.getResourses(3)
+                      + myModel.config.getResourses(4)+myModel.config.getResourses(5))
+        }
+        quitButton.buttonArea.onClicked: {
+            root.moves = 0
+            visible = false
+            myModel.newGame()
+            setGlobalScore()
         }
     }
     function setGlobalScore() {

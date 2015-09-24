@@ -5,6 +5,7 @@ Rectangle {
     width: 400
     height: 400
 
+    property alias quitButton: quitButton
     property alias button: button
     property alias text: text.text
     property alias size: text.font.pointSize
@@ -35,6 +36,7 @@ Rectangle {
         size: 10
     }
     Button{
+        id:quitButton
         text: qsTr("Quit")
       size: 10
         width: 100
