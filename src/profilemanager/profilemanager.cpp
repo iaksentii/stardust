@@ -54,10 +54,10 @@ ProfileManager *ProfileManager::Instance()
     return &profileManager;
 }
 
-void ProfileManager::newPlayer(const QString &newPlayer, const QString &password)
+bool ProfileManager::newPlayer(const QString &newPlayer, const QString &password)
 {
     if (!validName(newPlayer))
-        return;
+        return false;
 
     QDir dir(m_pathToProfiles);
     dir.setNameFilters(QStringList() << "*.json");
@@ -69,7 +69,7 @@ void ProfileManager::newPlayer(const QString &newPlayer, const QString &password
         QString playerName = fileInfo.fileName().split(".")[0];
 
         if (playerName == newPlayer)
-            return;
+            return false;
     }
 
     m_playersList.insert(newPlayer, QSharedPointer<PlayerData>(new PlayerData()));

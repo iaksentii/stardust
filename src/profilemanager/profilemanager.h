@@ -29,7 +29,7 @@ public:
     QStringListModel* playersListModel();
     void setPlayersListModel(const QStringList &playersListModel);
 
-    Q_INVOKABLE void newPlayer(const QString &newPlayer, const QString &password);
+    Q_INVOKABLE bool newPlayer(const QString &newPlayer, const QString &password);
     Q_INVOKABLE void deletePlayer(QString delPlayer);
     Q_INVOKABLE void loadPlayer(QString playerName);
     Q_INVOKABLE void saveCurrentPlayer();

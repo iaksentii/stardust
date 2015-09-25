@@ -32,7 +32,7 @@ Rectangle {
        Image {
             height: 200
             width: 200
-            source: profileManager.currentPlayerData.get("icon")
+            source: profileManager.hasPlayers ? profileManager.currentPlayerData.get("icon") : ""
         }
 
         Text {

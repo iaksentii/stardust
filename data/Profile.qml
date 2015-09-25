@@ -46,6 +46,7 @@ Rectangle {
 
         Button {
             width: workWidth
+            visible: profileManager.hasPlayers
 
             text: qsTr("RETURN")
             buttonArea.onClicked: ScreenManager.closeWindow()

@@ -157,8 +157,8 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             buttonArea.onClicked: {
                 if (passwordInput.text === repeatPasswordInput.text) {
-                    profileManager.newPlayer(inputArea.text, passwordInput.text)
-                    ScreenManager.closeWindow();
+                    if (profileManager.newPlayer(inputArea.text, passwordInput.text))
+                        ScreenManager.closeWindow();
                 }
                 else {
                     passwordInput.text = ""
