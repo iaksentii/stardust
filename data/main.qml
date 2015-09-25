@@ -13,8 +13,9 @@ ApplicationWindow {
     Connections {
         target: ScreenManager
         onOpenWindowSignal: {
-            translator.translate(profileManager.currentPlayerData.get("language"))
-
+            if(profileManager.hasPlayers) {
+                translator.translate(profileManager.currentPlayerData.get("language"))
+            }
             var component = Qt.createComponent("Loader.qml")
             if (component.status === Component.Ready) {
 
