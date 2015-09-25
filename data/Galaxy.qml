@@ -85,12 +85,12 @@ Item {
             width: 90
             anchors.bottom: sideBar.handBook.top
             size: 10
-            text: "Match3"
+            text: "MATCH3"
 
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    ScreenManager.loadWindow("MATCH3")
+                    ScreenManager.loadWindow("Match3")
                 }
             }
         }
@@ -104,8 +104,8 @@ Item {
         property alias resource5Count: resource5Count
 
         id: resourceBar
-        width: 600
-        height: 60
+        width: 1000
+        height: 100
         anchors.top: parent.top
         spacing: 2
 
@@ -148,7 +148,7 @@ Item {
                     text: qsTr(galaxyEngine.resource1.toString())
                     color: "white";
                     font.bold: true
-                    font.pixelSize: 20
+                    font.pixelSize: 30
                 }
 
                 MouseArea {
@@ -168,7 +168,7 @@ Item {
 
             Image {
 
-                source: galaxyEngine.get("water.png", screenName)
+                source: galaxyEngine.get("drop.png", screenName)
                 anchors.fill: parent
 
                 Text {
@@ -177,7 +177,7 @@ Item {
                     text: qsTr(galaxyEngine.resource2.toString())
                     color: "white";
                     font.bold: true
-                    font.pixelSize: 20
+                    font.pixelSize: 30
                 }
 
                 MouseArea {
@@ -206,7 +206,7 @@ Item {
                     text: qsTr(galaxyEngine.resource3.toString())
                     color: "white";
                     font.bold: true
-                    font.pixelSize: 20
+                    font.pixelSize: 30
                 }
 
                 MouseArea {
@@ -224,16 +224,23 @@ Item {
             height: parent.height
             width: parent.width/10
 
-            Text {
-                id: resource4Count
-                anchors.bottom: parent.bottom
-                text: qsTr(galaxyEngine.resource4.toString())
-                color: "white"
-                font.bold: true
-                font.pixelSize: 20
-            }
-            MouseArea {
+            Image {
+
+                source: galaxyEngine.get("carbon.png", screenName)
                 anchors.fill: parent
+
+                Text {
+                    id: resource4Count
+                    anchors.bottom: parent.bottom
+                    text: qsTr(galaxyEngine.resource4.toString())
+                    color: "white";
+                    font.bold: true
+                    font.pixelSize: 30
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                }
             }
         }
         Rectangle {
@@ -252,7 +259,7 @@ Item {
                 text: qsTr(galaxyEngine.resource5.toString())
                 color: "white"
                 font.bold: true
-                font.pixelSize: 20
+                font.pixelSize: 30
             }
             MouseArea {
                 anchors.fill: parent

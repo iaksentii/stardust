@@ -1,6 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.3
 import QtQuick.Controls.Styles 1.3
+//import Qt.labs.particles 1.0
 import "sceneEngine.js" as Engine
 import "."
 
@@ -425,6 +426,7 @@ Item {
 
         Rectangle {
 
+            property int countClickes: 0
             id: sun
             x: parent.width / 2
             y: parent.height / 2
@@ -445,6 +447,37 @@ Item {
                 width: 150
             }
 
+//            MouseArea {
+//                onClicked: {
+//                    parent.countClickes += 1;
+//                    if(parent.countClickes === 20)
+//                        particle.enabled = true
+
+
+//                }
+//            }
+
+//            Particles {
+//                id: particle
+//                enabled: false
+//                y: sunCore.x
+//                width: parent.width
+//                height: 30
+//                source: "plazma.png"
+//                lifeSpan: 5000
+//                count: 50
+//                angle: 70
+//                angleDeviation: 36
+//                velocity: 30
+//                velocityDeviation: 10
+
+//                ParticleMotionWander {
+//                    xvariance: 30
+//                    pace: 100
+//                }
+
+//            }
+
             SequentialAnimation {
                 running: true
                 loops: -1
@@ -454,14 +487,12 @@ Item {
                     target: sunShine;
                     duration: 900;
                     property: "rotation";
-//                    from: 0
                     to: 20
                 }
                 NumberAnimation {
                     target: sunShine;
                     duration: 900;
                     property: "rotation";
-//                    from: -90
                     to: 0
                 }
             }

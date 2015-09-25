@@ -136,8 +136,8 @@ Rectangle {
             id: part2
             border.color: "#43d3ca";
             border.width: 1;
+            color: "#fafa78"
             height: parent.height/3
-            color: "#72ffb3"
             width: parent.width
 
             MouseArea {
@@ -155,7 +155,7 @@ Rectangle {
             border.color: "#43d3ca";
             border.width: 1;
             height: parent.height/3
-            color: "#fafa78"
+            color: "#72ffb3"
             width: parent.width
 
             MouseArea {
